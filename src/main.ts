@@ -5,6 +5,7 @@ import * as VueRouter from 'vue-router';
 
 import NotFound from './pages/NotFound.vue'
 import AboutPage from './pages/about/AboutPage.vue'
+import ProjectPage from './pages/projects/ProjectsPage.vue'
 
 import App from './App.vue'
 
@@ -18,10 +19,10 @@ const routes = [
     path: '/about',
     component: AboutPage,
   },
-  // {
-  //   path: '/projects',
-  //   component: undefined,
-  // },
+  {
+    path: '/projects',
+    component: ProjectPage,
+  },
   // {
   //   path: '/ultra-tictactoe',
   //   component: undefined,
