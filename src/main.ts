@@ -11,6 +11,7 @@ import AboutPage from './pages/about/AboutPage.vue'
 import ProjectPage from './pages/projects/ProjectsPage.vue'
 import HomePage from './pages/home/HomePage.vue'
 
+import UltraTictactoe from './pages/projects/UltraTictactoe.vue'
 
 import App from './App.vue'
 
@@ -28,10 +29,10 @@ const routes = [
     path: '/projects',
     component: ProjectPage,
   },
-  // {
-  //   path: '/ultra-tictactoe',
-  //   component: undefined,
-  // },
+  {
+    path: '/ultra-tictactoe',
+    component: UltraTictactoe,
+  },
   // {
   //   path: '/kang2',
   //   component: undefined,
