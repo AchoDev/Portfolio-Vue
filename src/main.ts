@@ -1,11 +1,16 @@
 
 import { createApp } from 'vue'
 
+// import VueHead from 'vue-head'
+
 import * as VueRouter from 'vue-router';
 
 import NotFound from './pages/NotFound.vue'
+
 import AboutPage from './pages/about/AboutPage.vue'
 import ProjectPage from './pages/projects/ProjectsPage.vue'
+import HomePage from './pages/home/HomePage.vue'
+
 
 import App from './App.vue'
 
@@ -13,7 +18,7 @@ import App from './App.vue'
 const routes = [
   {
     path: '/',
-    component: App,
+    component: HomePage,
   },
   {
     path: '/about',
@@ -70,8 +75,8 @@ const router = VueRouter.createRouter({
   routes,
 })
 
+
 const app = createApp(App)
 
 app.use(router)
-
 app.mount('#app')

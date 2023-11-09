@@ -1,7 +1,7 @@
 
 <template>
 
-<div>
+<div id="about">
   <h1>About Me</h1>
 
   <h2>Hello!</h2>
@@ -160,6 +160,30 @@
     />
 
   </div>
+
+  <br>
+  <br>
+
+  <hr>
+
+  <h2>Hobbies</h2>
+
+  <p>Outside of coding, I have other hobbies too. I love reading. I read every day, as much as I can, with lots of different genres that entice me, especially thriller and nonfiction. Playing piano is another hobby of mine. To have an instrument and learning to play music on it is something very important to me. Even if I didn't have any fun, I'd do so, but I love the piano aswell. Like reading, it's something I practice each and every day.</p>
+
+  <hr>
+
+  <h2>Goal</h2>
+
+  <p>My goal with all my programs and projects is to create something that holds a special value to somebody. I'd love to have something, where I know that people us it and like it. Striving for this future is what keeps me going and why I excell in my field. I love creating and crafting, having the thought of something that would be nice and useful and going on to make that. Most of my projects are products of something that would be nice to have for me.</p>
+
+  <hr>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
 </div>
 
 </template>
@@ -233,3 +257,85 @@ const portfolio: projectType = {
 
 
 </script>
+
+<style scoped>
+
+hr {
+  width: 40%;
+  border-width: 0.5px;
+  border-color: rgba(194, 152, 152, 0.712);
+}
+
+#about {
+  width: 100%;
+  text-align: justify;
+  
+  display: flex;
+  
+  justify-self: center;
+  flex-direction: column;
+  align-items: center;  
+}
+
+#skills {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);  
+}
+
+@media only screen and (max-width: 1200px) {
+  #skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media only screen and (max-width: 725px) {
+  #skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
+  p {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .skill {
+    /* width: 100% !important; */
+    max-width: 100%;
+  }
+}
+
+#name {
+  font-size: 15pt;
+  background: linear-gradient(70deg, rgb(139, 180, 255), rgb(255, 54, 54));
+  color: white;
+  padding: 3px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: default;
+
+  display: inline-block;
+
+  transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+
+  &:hover {
+    transform: scale(2) rotate(360deg);
+    box-shadow: rgba(255, 65, 65, 0.35) 0px 5px 15px;
+  }
+}
+
+
+p {
+  max-width: 1000px;
+  padding-left: 150px;
+  padding-right: 150px;
+  font-size: 15pt;
+}
+
+h1 {
+  text-align: center;
+}
+
+</style>

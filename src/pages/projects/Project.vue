@@ -13,7 +13,7 @@
 
   <img :src="props.path + '/main.png'" :alt="props.path">
 
-  <div id="name">
+  <div class="name">
     <span :style="`background: ${color}; color: ${text}`">
       {{ name }}
     </span>
@@ -60,7 +60,7 @@ const props = defineProps<{
   justify-content: center;
   align-items: center;
   
-  #name {
+  .name {
     font-size: 40pt;
     position: absolute;
     bottom: 0;
@@ -148,7 +148,7 @@ const props = defineProps<{
       filter: blur(5px);
     }
 
-    #name {
+    .name {
       bottom: 40%;
     }
   }

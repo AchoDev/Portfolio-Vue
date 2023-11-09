@@ -6,7 +6,7 @@
     <h1>Projects</h1>
   </center>
 
-  <div class="wrapper">
+  <div id="wrapper">
 
     <Project 
       name="AmA"
@@ -89,6 +89,35 @@ import Project from './Project.vue';
 
 </script>
 
-<style lang="sass">
+<style lang="scss">
+#wrapper {
 
+  width: 85%;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* align-items: start; */
+  justify-content: left;
+
+  gap: 50px;
+}
+
+@media only screen and (max-width: 1600px) {
+  #wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  #wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .name span {
+    font-size: 28pt;
+  }
+}
 </style>

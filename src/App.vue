@@ -2,23 +2,7 @@
 
 <template>
 <div>
-  <nav>
-    <router-link to="/">
-      <img src="/logo.png" alt="Logo">
-    </router-link>
-
-    <ul>
-      <li>
-        <router-link to="/">Home</router-link>
-      </li>
-      <li>
-        <router-link to="/about">About</router-link>
-      </li>
-      <li>
-        <router-link to="projects">Projects</router-link>
-      </li>
-    </ul>
-  </nav>
+  <NavigationBar />
 
   <router-view></router-view>
 
@@ -27,10 +11,43 @@
 
 <script setup lang="ts">
 
+import NavigationBar from './components/NavigationBar.vue';
+
 import 'vue-router'
+
+
+document.documentElement.dataset.scroll = window.scrollY.toString();
+document.addEventListener('scroll', (_) => {
+  document.documentElement.dataset.scroll = window.scrollY.toString();
+}, { passive: true });
 
 </script>
 
-<style scoped>
+<style>
+
+body {
+  margin: 0;
+  padding: 0;
+
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(
+    10deg,
+    rgb(12, 21, 53),
+    rgb(24, 9, 29),
+    rgb(48, 7, 7)
+    
+  );
+  background-attachment: fixed;
+  background-size: cover;
+
+  font-family: 'Nunito', sans-serif;
+
+  color: white;
+}
+
+
 
 </style>
