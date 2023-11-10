@@ -13,12 +13,12 @@ import Footer from '../components/Footer.vue'
 <div class="page">
 
   <Banner 
-    title="AmA"
-    banner="ama"
+    title="AchoMatico"
+    banner="am-launcher"
     download=""
-    github="https://github.com/AchoDev/AmA/"
-    createdOn="18 October, 2022"
-    publishedOn="3 November, 2022"
+    github="https://github.com/AchoDev/AchoMatico-Launcher"
+    createdOn="10 April, 2022"
+    publishedOn="Still in development"
   />
 
   <PreviewImages
