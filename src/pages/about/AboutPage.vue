@@ -45,7 +45,7 @@
       :projects="[
         uttt
       ]"
-      text="black"
+      textColor="black"
     />
 
     <Skill
@@ -55,7 +55,7 @@
       :projects="[
         kang2, ama, yal, amlauncher, 
       ]"
-      text="black"
+      textColor="black"
     />
 
     <Skill
@@ -83,7 +83,7 @@
       :projects="[
         portfolio
       ]"
-      text="black"
+      textColor="black"
     />
 
     <Skill
