@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import Banner from './components/Banner.vue';
-import PreviewImages from './components/PreviewImages.vue'
-import ProjectContent from './components/ProjectContent.vue'
-import Footer from './components/Footer.vue'
+import Banner from '../components/Banner.vue';
+import PreviewImages from '../components/PreviewImages.vue'
+import ProjectContent from '../components/ProjectContent.vue'
+import Footer from '../components/Footer.vue'
 
 </script>
 

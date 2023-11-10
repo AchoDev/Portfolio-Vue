@@ -90,8 +90,8 @@ defineProps<{
     z-index: 1;
     margin: 0;
 
-    background: rgba(0, 0, 0, 0.288);
-    width: 200px;
+    background: rgba(0, 30, 71, 0.644);
+    width: 400px;
     text-align: center;
 
     padding: 5px;
@@ -170,10 +170,12 @@ defineProps<{
     #title {
       bottom: 300px !important;
       color: white;
-      background: rgba(0, 0, 0, 0.315);
+      background: rgba(0, 0, 0, 0.845);
       border-radius: 15px;
       width: auto;
       padding: 20px;
+
+      left: 10px;
     }
 
     #preview-images {
@@ -186,14 +188,14 @@ defineProps<{
 
     #bar {
       color: white;
-      background: rgba(0, 0, 0, 0.438);
+      background: rgba(0, 0, 0, 0.549);
       flex-direction: column;
       align-items: start !important;
       justify-content: space-evenly;
       gap: 5px !important;
       height: 200px !important;
 
-      width: auto;
+      width: 80dvw;
       border-radius: 20px;
       margin: 10px;
     }

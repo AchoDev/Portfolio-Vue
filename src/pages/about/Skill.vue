@@ -94,7 +94,7 @@ const props = defineProps<{
 
 .skill {
   width: 300px;
-  min-height: 70;
+  min-height: 100px;
 
 
   display: flex;

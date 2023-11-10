@@ -8,15 +8,21 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const scene: THREE.Scene = new THREE.Scene()
 
+let camera: THREE.PerspectiveCamera;
+const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer()
 
-const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000)
+function setSceneValues() {
+  camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000)
+  renderer.setSize(window.innerWidth, window.innerHeight)
+}
+
+setSceneValues()
+
 scene.background = new THREE.Color('#000000') 
 
-const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer()
 renderer.shadowMap.type = THREE.PCFSoftShadowMap
 // renderer.shadowMap.enabled = true
 
-renderer.setSize(window.innerWidth, window.innerHeight)
 
 const geometry: THREE.BoxGeometry = new THREE.BoxGeometry(1, 1, 0.2)
 const material: THREE.MeshLambertMaterial = new THREE.MeshLambertMaterial({color: 0x00ff00})
@@ -43,7 +49,7 @@ loader.load(
   },
 
   function(xhr) {
-    console.log((xhr.loaded / xhr.total * 100) + '% loaded')
+    // console.log((xhr.loaded / xhr.total * 100) + '% loaded')
   },
 
   function(error) {
@@ -123,9 +129,29 @@ const buttonMovementZ = [
 
 export function attachDOMElements() {
 
-  document.getElementById("home").appendChild(renderer.domElement)
+  if(window.innerWidth < 750) {
+    originalCamZ = 5
+  }
 
-  Array.from(document.getElementById("movement").children).forEach((button: HTMLButtonElement, index) => {
+  window.addEventListener("orientationchange", (e) => {
+    document.getElementsByTagName("canvas").item(0)?.remove()
+    setTimeout(() => {
+      setSceneValues()
+      document.getElementById("home")?.appendChild(renderer.domElement)
+    }, 10)
+  }, true);
+  
+  window.addEventListener("resize", (e) => {
+    document.getElementsByTagName("canvas").item(0)?.remove()    
+    setTimeout(() => {
+      setSceneValues()
+      document.getElementById("home")?.appendChild(renderer.domElement)
+    }, 10)
+  }, true);
+  
+  document.getElementById("home")?.appendChild(renderer.domElement)
+
+  Array.from(document.getElementById("movement")!.children).forEach((button: HTMLButtonElement, index) => {
     button.onmousedown = (e) => {
   
       buttonPressed = true
@@ -183,9 +209,6 @@ const smallMoveAmount: number = 0.0001
 
 window.addEventListener('mousemove', (e) => {
   if(!mouseclicked) {
-
-    
-
     camera.rotation.y -= e.movementX * smallMoveAmount
     camera.rotation.x -= e.movementY * smallMoveAmount * 2
 

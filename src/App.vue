@@ -4,6 +4,8 @@
 <div>
   <NavigationBar />
 
+  
+
   <router-view></router-view>
 
 </div>
@@ -48,6 +50,22 @@ body {
   color: white;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+::-webkit-scrollbar-track {
+  background: rgb(42, 28, 38);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient( rgb(77, 57, 88), rgb(75, 40, 40));
+  border-radius: 10px;
+  transition: ease-out .2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient( rgb(113, 84, 129), rgb(113, 61, 61));
+}
 
 </style>

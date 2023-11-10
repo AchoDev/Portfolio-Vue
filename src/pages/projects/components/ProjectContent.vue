@@ -107,7 +107,7 @@
     width: auto;
     padding-left: 20%;
     padding-right: 20%;
-    
+
     summary {
       font-size: 15pt;
       font-weight: bold;

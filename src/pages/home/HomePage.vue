@@ -108,7 +108,7 @@ const debugControls = ref<boolean>(false)
 <style scoped lang="scss">
 
   #home {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;  
     display: grid;
     place-items: center;
@@ -157,7 +157,6 @@ const debugControls = ref<boolean>(false)
     /* background: white; */
     
     button {
-
       position: absolute;
       width: 35px;
       height: 35px;
@@ -254,6 +253,31 @@ const debugControls = ref<boolean>(false)
       }
     }
     
-  } 
+  }
 
+  @media only screen and (max-width: 700px) {
+    #movement {
+
+      width: 175px;
+      height: 175px;
+
+      left: 50%;
+      right: 50%;
+
+      transform: translate(-50%);
+    
+      button {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 15px;
+
+        background: gray;
+      }
+    }
+
+    #information {
+      display: none;
+    }
+  }
 </style>

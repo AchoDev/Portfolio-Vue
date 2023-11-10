@@ -2,6 +2,11 @@
 <template>
 
 <div id="about">
+
+  <br>
+  <br>
+  <br>
+
   <h1>About Me</h1>
 
   <h2>Hello!</h2>

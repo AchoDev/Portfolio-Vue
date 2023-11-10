@@ -1,0 +1,76 @@
+
+<script setup lang="ts">
+
+import Banner from '../components/Banner.vue';
+import PreviewImages from '../components/PreviewImages.vue'
+import ProjectContent from '../components/ProjectContent.vue'
+import Footer from '../components/Footer.vue'
+
+</script>
+
+<template>
+
+<div class="page">
+
+  <Banner 
+    title="AmA"
+    banner="ama"
+    download=""
+    github="https://github.com/AchoDev/AmA/"
+    createdOn="18 October, 2022"
+    publishedOn="3 November, 2022"
+  />
+
+  <PreviewImages
+    base="am-launcher"
+    trailer=""
+    :images = "[
+      'preview.png',
+    ]"
+  />
+
+  <ProjectContent>
+
+    <blockquote class="warning">
+      This Project is still under development! <!-- See if there are any updates in the <button>info</button> section -->
+    </blockquote>
+
+    <h2>Description</h2>
+
+    <p>AchoMatico-Launcher is a desktop application, that lists and launches all applications you need. </p>
+
+    <h2>How to use</h2>
+
+    <h3>Adding applications</h3>
+
+    <p>After installing and starting the program, you should be able to see the normal interface. To add an application, press the <strong>"Add"</strong> button on the top left corner. A file selector should appear. Navigate to either a shortcut or an exe file to whatever program you want. After that, you'll have one application in your list.</p>
+
+    <h3>Editing</h3>
+
+    <p>To change title, banner, image and so on of your app, press the <strong>"Edit"</strong> button, and change anything you need. After that either press <strong>"Save"</strong> to save your changes or <strong>Cancel</strong> to revert all changes you made.</p>
+
+    <h2>How it works</h2>
+
+    <p>Under the hood, the program just stores all saves applications as JSON-Objects in a single JSON file. Every entry has it's name, description, size, image paths and of course file path. When you open an application, all the program does is just call a cmd-command to open the program.</p>
+
+    <h2>How I made it</h2>
+
+    <p>In the beginning I wanted to have a central place where all my shortcuts are. Before, they were all spread around various folders in my computer. The only program that could theoretically do that was Steam, as far as I knew back then. So I decided to just do it myself. After a bit of research, I found out about ElectronJS and began my project. Since I wasn't very used to JavaScript in or frontend frameworks in general, it took a bit of time. A friend helped me out and programmed some things too. The Program is basically done, everything that's left is just the "Add" button.</p>
+
+    <div id="roadmap">
+      <ul>
+        <li>"Add" button, of course</li>
+        <li>Change to PetiteVue</li>
+        <li>Add compact list mode for sidebar</li>
+        <li>Use program icon as default picture</li>
+        <li>Add "last opened" date</li>
+      </ul>
+    </div>
+
+  </ProjectContent>
+
+  <Footer/>
+
+</div>
+
+</template>

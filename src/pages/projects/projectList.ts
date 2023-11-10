@@ -50,6 +50,12 @@ const projectList: Array<{name: string, desc: string, path: string, color: strin
     color: 'rgb(255, 226, 61)',
     text: 'black',
   },
+  {
+    name: 'Secret Project', 
+    desc: 'This is a secret project. It will be useful, once it is finished',
+    path: 'secret',
+    color: '#05a85f',
+  },
 ]
 
 export default projectList
