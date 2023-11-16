@@ -156,7 +156,7 @@
     }
   }
 
-  h3 {
+  h3, h4 {
     text-align: center;
   }
   

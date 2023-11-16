@@ -55,7 +55,7 @@ import Footer from '../components/Footer.vue'
 
     <h2>Roadmap</h2>
 
-    <h4>1.0</h4>
+    <h3>Version 1.0</h3>
 
     <div id="roadmap">
       <ul>
@@ -67,7 +67,7 @@ import Footer from '../components/Footer.vue'
       </ul>
     </div>
 
-    <h4>1.1</h4>
+    <h3>Version 1.1</h3>
 
     <div id="roadmap">
       <ul>
