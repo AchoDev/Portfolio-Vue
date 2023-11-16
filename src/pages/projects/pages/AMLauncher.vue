@@ -73,6 +73,7 @@ import Footer from '../components/Footer.vue'
       <ul>
         <li>Changing order of apps possibility</li>
         <li>Change color of app background</li>
+        <li>Banner images</li>
         <li>Desc disappears no content</li>
         <li>Something new..?</li>
       </ul>
