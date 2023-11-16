@@ -71,8 +71,9 @@ import Footer from '../components/Footer.vue'
 
     <div id="roadmap">
       <ul>
-        <li>Change order of apps</li>
+        <li>Changing order of apps possibility</li>
         <li>Change color of app background</li>
+        <li>Desc disappears no content</li>
         <li>Something new..?</li>
       </ul>
     </div>
