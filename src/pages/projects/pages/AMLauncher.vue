@@ -55,6 +55,8 @@ import Footer from '../components/Footer.vue'
 
     <h2>Roadmap</h2>
 
+    <h4>1.0</h4>
+
     <div id="roadmap">
       <ul>
         <li class="checked">"Add" button, of course</li>
@@ -62,6 +64,16 @@ import Footer from '../components/Footer.vue'
         <li class="checked">Add compact list mode for sidebar</li>
         <li class="checked">Use program icon as default picture</li>
         <li class="checked">Add "last opened" date</li>
+      </ul>
+    </div>
+
+    <h4>1.1</h4>
+
+    <div id="roadmap">
+      <ul>
+        <li>Change order of apps</li>
+        <li>Change color of app background</li>
+        <li>Something new..?</li>
       </ul>
     </div>
 
