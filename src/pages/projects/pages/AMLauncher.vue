@@ -13,7 +13,7 @@ import Footer from '../components/Footer.vue'
 <div class="page">
 
   <Banner 
-    title="AchoMatico"
+    title="AchoMatico-Launcher"
     banner="am-launcher"
     download="https://1drv.ms/u/s!AovQFIBO4x5ZiqMqWkDZDih0hTtI_A?e=Pul2Xg"
     github="https://github.com/AchoDev/AchoMatico-Launcher"
@@ -74,6 +74,7 @@ import Footer from '../components/Footer.vue'
         <li>Changing order of apps possibility</li>
         <li>Change color of app background</li>
         <li>Banner images</li>
+        <li>Double click to open app</li>
         <li>Desc disappears no content</li>
         <li>Something new..?</li>
       </ul>
