@@ -15,7 +15,7 @@ import Footer from '../components/Footer.vue'
   <Banner 
     title="AchoMatico"
     banner="am-launcher"
-    download=""
+    download="https://1drv.ms/u/s!AovQFIBO4x5ZiqMqWkDZDih0hTtI_A?e=Pul2Xg"
     github="https://github.com/AchoDev/AchoMatico-Launcher"
     createdOn="10 April, 2022"
     publishedOn="Still in development"
@@ -59,11 +59,11 @@ import Footer from '../components/Footer.vue'
 
     <div id="roadmap">
       <ul>
-        <li>"Add" button, of course</li>
-        <li>Change to PetiteVue</li>
-        <li>Add compact list mode for sidebar</li>
-        <li>Use program icon as default picture</li>
-        <li>Add "last opened" date</li>
+        <li class="checked">"Add" button, of course</li>
+        <li class="checked">Change to PetiteVue</li>
+        <li class="checked">Add compact list mode for sidebar</li>
+        <li class="checked">Use program icon as default picture</li>
+        <li class="checked">Add "last opened" date</li>
       </ul>
     </div>
 
