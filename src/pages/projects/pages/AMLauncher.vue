@@ -31,10 +31,6 @@ import Footer from '../components/Footer.vue'
 
   <ProjectContent>
 
-    <blockquote class="warning">
-      This Project is still under development! <!-- See if there are any updates in the <button>info</button> section -->
-    </blockquote>
-
     <h2>Description</h2>
 
     <p>AchoMatico-Launcher is a desktop application, that lists and launches all applications you need. </p>
@@ -56,6 +52,8 @@ import Footer from '../components/Footer.vue'
     <h2>How I made it</h2>
 
     <p>In the beginning I wanted to have a central place where all my shortcuts are. Before, they were all spread around various folders in my computer. The only program that could theoretically do that was Steam, as far as I knew back then. So I decided to just do it myself. After a bit of research, I found out about ElectronJS and began my project. Since I wasn't very used to JavaScript in or frontend frameworks in general, it took a bit of time. A friend helped me out and programmed some things too. The Program is basically done, everything that's left is just the "Add" button.</p>
+
+    <h2>Roadmap</h2>
 
     <div id="roadmap">
       <ul>
