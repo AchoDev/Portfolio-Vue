@@ -18,7 +18,7 @@ import Footer from '../components/Footer.vue'
     download="https://1drv.ms/u/s!AovQFIBO4x5ZiqMqWkDZDih0hTtI_A?e=Pul2Xg"
     github="https://github.com/AchoDev/AchoMatico-Launcher"
     createdOn="10 April, 2022"
-    publishedOn="Still in development"
+    publishedOn="16 November, 2023"
   />
 
   <PreviewImages
