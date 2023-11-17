@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound.vue'
 import AboutPage from './pages/about/AboutPage.vue'
 import ProjectPage from './pages/projects/ProjectsPage.vue'
 import HomePage from './pages/home/HomePage.vue'
+import BlogPage from './pages/blog/BlogPage.vue'
 
 import UltraTictactoe from './pages/projects/pages/UltraTictactoe.vue'
 import AmA from './pages/projects/pages/AmA.vue';
@@ -37,6 +38,13 @@ const routes = [
     component: AboutPage,
     meta: {
       title: 'About',
+    }
+  },
+  {
+    path: '/blog',
+    component: BlogPage,
+    meta: {
+      title: 'Blog'
     }
   },
   {
@@ -120,6 +128,10 @@ const router = VueRouter.createRouter({
   routes,
 })
 
+
+router.beforeEach((to) => {
+  document.title = to.meta.title as string || 'Not Found';
+});
 
 const app = createApp(App)
 

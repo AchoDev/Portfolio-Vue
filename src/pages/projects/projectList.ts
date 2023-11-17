@@ -1,5 +1,7 @@
 
-const projectList: Array<{name: string, desc: string, path: string, color: string, text?: string}>=  [
+import projectType from "./projectType"
+
+const projectList: Array<projectType> = [
   {
     name: 'AmA',
     desc: 'Digital vocabulary book && note taking desktop application, made for language learners, who like writing down learned words and keeping them organized',

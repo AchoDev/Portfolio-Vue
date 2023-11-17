@@ -11,7 +11,7 @@
   "dependencies": {
     "postscribe": "^2.0.8",
     "three": "^0.158.0",
-    "vue": "^3.3.4",
+    "vue": "^3.3.8",
     "vue-head": "^2.2.0",
     "vue-router": "^4.2.5"
   },
