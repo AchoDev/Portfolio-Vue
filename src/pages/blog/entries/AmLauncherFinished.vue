@@ -52,9 +52,16 @@
             So DOWNLOAD NOW (for windows only for now). The BEST launcher ever (this is true)!
         </p>
 
-        <button class="download">
+        <!-- <button class="download">
             
-        </button>
+        </button> -->
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
 </template>
 <script setup lang="ts">

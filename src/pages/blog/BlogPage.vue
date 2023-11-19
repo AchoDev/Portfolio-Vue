@@ -1,65 +1,71 @@
 <template>
-    <div>
-        <div class="blog-entry" v-for="entry in blogEntries">
-            <router-link :to="`/blog/${entry.path}`">
-                <div class="banner" :style="`background: ${findProject(entry.relatedProject).color}`">
-                    <img :src="`/projects/${entry.relatedProject}/main.png`" alt="Project Image">
+    <div id="container">
+
+        <br>
+        <br>
+        <br>
+
+        <h1>Blog</h1>
+
+        <router-link :to="`/blog/${entry.path}`" class="blog-entry" v-for="entry in blogEntries">
+            <div class="banner" :style="`background: ${findProject(entry.relatedProject).color}`">
+                <img :src="`/projects/${entry.relatedProject}/main.png`" alt="Project Image">
+            </div>
+
+            <div class="content">
+                <h2> {{ entry.title }} </h2>
+
+                <div class="body">
+                    {{ entry.desc }}
                 </div>
-    
-                <div class="content">
-                    <div class="head">
-                        <h2> {{ entry.title }} </h2>
-                        <span> {{ entry.date }} </span>
-                    </div>
-    
-                    <div class="body">
-                        {{ entry.desc }}
-                    </div>
-                </div>
-            </router-link>
-        </div>
+
+                <span class="date"> {{ entry.date }} </span>
+            </div>
+        </router-link>
+
+        <BlogEntry :content="currentOpenBlog"/>
+
     </div>
 </template>
 
 <script setup lang="ts">
 
-import * as EntryComponents from './entries/'
-// import BlogEntry from './BlogEntry.vue';
-
+import { watch, shallowRef } from 'vue';
 import projectList from '../projects/projectList';
 import projectType from "../projects/projectType"
 
+import blogEntries from './blogEntries';
+import BlogEntry from './BlogEntry.vue'
+
 const props = defineProps<{
-    blogEntry?: any
+    title?: any
 }>()
 
-if(props.blogEntry != null) console.log("open blog man!!")
+const currentOpenBlog = shallowRef()
 
-interface entryType {
-    title: string
-    desc: string
-    date: string,
-    component: any
-    relatedProject: string,
-    path: string,
+
+if(props.title != null) {
+    blogEntries.forEach((blog) => {
+        if(blog.path === props.title) currentOpenBlog.value = blog.component
+    })
 }
 
-const blogEntries: Array<entryType> = [
-    {
-        title: 'AchoMatico-Launcher finished!',
-        desc: 'Yesterday, I finally finished AchoMatico-Launcher, this explains, the process of ending this ~1.5 year journey',
-        date: '17 November, 2023',
-        component: EntryComponents.AmLauncherFinished,
-        relatedProject: 'am-launcher',
-        path: 'am-launcher-finished',
-    }    
-]
+watch(() => props.title, () => {
+    if(props.title != null) {
+        blogEntries.forEach((blog) => {
+            if(blog.path === props.title) currentOpenBlog.value = blog.component
+        })
+    } else {
+        currentOpenBlog.value = null
+    }
+})
+
 
 function findProject(projectName: string) {
     let result: projectType = projectList[0];
 
     projectList.forEach((project) => {
-        if(project.name === projectName) {
+        if(project.path === projectName) {
             result = project 
         }
     })
@@ -69,6 +75,125 @@ function findProject(projectName: string) {
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100dvh;
+}
+
+.blog-entry {
+    display: flex;
+    flex-direction: row;
+    
+    width: 800px;
+    max-width: 90%;
+
+    height: 200px;
+
+    overflow: hidden;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 10px;
+
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) .5s;
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        transform: scale(1.05);
+
+        .content::after {
+            left: -65px;
+            // transform: rotate(0);
+        }
+
+        .banner img {
+            transform: scale(1.1) translateX(-10px);
+        }
+    }
+
+    .banner {
+        width: 200px;
+
+        z-index: -1;
+
+        display: grid;
+        place-items: center;
+
+        img {
+            transition: cubic-bezier(0.165, 0.84, 0.44, 1) .8s;
+
+            width: 70%;
+            height: auto;
+        }
+    }
+
+    .content {
+        $background-color: rgb(28, 61, 105);
+        // $background: linear-gradient(
+        //     40deg, 
+        //     darken($background-color, 5%), 
+        //     lighten($background-color, 5%)
+        // );
+        $background: $background-color;
+
+        background: $background;
+
+        position: relative;
+        // overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        
+
+        gap: 20px;
+        
+
+        .date {
+            position: absolute;
+            bottom: 5px;
+            right: 10px;
+        }
+
+        @media screen and (max-width: 700px) {
+            width: 300px !important;
+            gap: 0;
+
+            .body {
+                font-size: 10pt;
+                width: 95%;
+            }
+
+            h2 {
+                margin-bottom: 10px !important;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            background: $background;
+            box-shadow: rgba(0, 0, 0, 0.507) -10px 0px 13px -5px;
+
+            height: 500px;
+            width: 200px;
+
+            transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) .3s;
+
+            top: -20px;
+            left: -50px;
+
+            z-index: -1;
+
+            transform: rotate(10deg)
+        }
+    }
+}
     
 </style>

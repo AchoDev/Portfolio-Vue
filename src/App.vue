@@ -27,6 +27,10 @@ document.addEventListener('scroll', (_) => {
 
 <style>
 
+html {
+  
+}
+
 body {
   margin: 0;
   padding: 0;

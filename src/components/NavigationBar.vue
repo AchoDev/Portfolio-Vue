@@ -90,9 +90,25 @@ nav {
     
     padding-left: 15px;
     
+    // transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) .5s;
+
+    transition: linear 1s;
     &:hover {
       background: none !important;
+
+      // transform: rotate(-10deg) rotateX(-70deg);
+
+      transform: rotate(360deg)
+      
     }
+
+  }
+  @media screen and (max-width: 700px) {
+    #logo {
+      display: none;
+    }
+
+    justify-content: center;
   }
 }
 

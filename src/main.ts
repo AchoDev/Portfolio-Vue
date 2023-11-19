@@ -48,6 +48,14 @@ const routes = [
     }
   },
   {
+    path: '/blog/:title',
+    component: BlogPage,
+    props: true,
+    meta: {
+      title: 'Blog'
+    }
+  },
+  {
     path: '/projects',
     component: ProjectPage,
     meta: {
