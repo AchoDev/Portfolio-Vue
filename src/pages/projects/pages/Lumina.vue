@@ -40,8 +40,6 @@ import Footer from '../components/Footer.vue'
       Lumina Engine is a game engine that’s built on top of the PyGame. It’s specifically made like the Unity Engine, which makes Game Development as a whole a bit more restrictive, but way simpler.
     </p>
 
-    <h2>Check out my other projects!</h2>
-
   </ProjectContent>
 
   <Footer/>
