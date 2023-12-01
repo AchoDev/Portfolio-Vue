@@ -4,5 +4,6 @@ export default interface entryType {
     date: string,
     component: any
     relatedProject: string,
+    color: string,
     path: string,
 }

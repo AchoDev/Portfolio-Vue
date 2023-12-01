@@ -20,6 +20,8 @@ defineProps<{
 
 <style scoped lang="scss">
 
+    
+
     .close {
         transform: scale(1.1);
         opacity: 0;
@@ -109,6 +111,10 @@ defineProps<{
             width: 95%;
 
             padding-top: 100px !important;
+
+            :deep(img) {
+                max-width: 100% !important;
+            }
         }
 
         &::-webkit-scrollbar-track {
@@ -150,6 +156,16 @@ defineProps<{
             padding: 4px;
             border-radius: 5px;
             font-size: 11pt;
+        }
+
+        :deep(img) {
+            max-width: 70%;
+            border-radius: 10px;
+        }
+        
+        :deep(iframe) {
+            max-width: 100%;
+            border-radius: 10px;
         }
 
     }

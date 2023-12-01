@@ -12,7 +12,7 @@
                 <img :src="`/projects/${entry.relatedProject}/main.png`" alt="Project Image">
             </div>
 
-            <div class="content">
+            <div class="content" :style="`--background-color: ${entry.color}`">
                 <h2> {{ entry.title }} </h2>
 
                 <div class="body">
@@ -82,6 +82,8 @@ function findProject(projectName: string) {
     flex-direction: column;
     align-items: center;
 
+    gap: 40px;
+
     min-height: 100dvh;
 }
 
@@ -133,15 +135,17 @@ function findProject(projectName: string) {
     }
 
     .content {
-        $background-color: rgb(28, 61, 105);
+        // $background-color: rgb(28, 61, 105);
         // $background: linear-gradient(
         //     40deg, 
         //     darken($background-color, 5%), 
         //     lighten($background-color, 5%)
         // );
-        $background: $background-color;
+        // $background: $background-color;
 
-        background: $background;
+        // background: $background;
+
+        background: var(--background-color);
 
         position: relative;
         // overflow: hidden;
@@ -150,7 +154,7 @@ function findProject(projectName: string) {
         align-items: center;
         flex-direction: column;
 
-        
+        width: 100%;
 
         gap: 20px;
         
@@ -178,7 +182,7 @@ function findProject(projectName: string) {
         &::after {
             content: '';
             position: absolute;
-            background: $background;
+            background: var(--background-color);
             box-shadow: rgba(0, 0, 0, 0.507) -10px 0px 13px -5px;
 
             height: 500px;
