@@ -49,6 +49,36 @@
     />
 
     <Skill
+      name="HTML"
+      img="html.png"
+      color="#e34f26"
+      :projects="[
+        ama, yal, amlauncher, portfolio
+      ]"
+      textColor="white"
+    />
+
+    <Skill
+      name="CSS"
+      img="css.png"
+      color="#264de4"
+      :projects="[
+        ama, yal, amlauncher, portfolio
+      ]"
+      textColor="white"
+    />
+
+    <Skill
+      name="SASS"
+      img="sass.png"
+      color="#c76494"
+      :projects="[
+        ama, yal, amlauncher, portfolio
+      ]"
+      textColor="white"
+    />
+
+    <Skill
       name="JavaScript"
       img="js.png"
       color="#f0dc4e"

@@ -120,17 +120,23 @@ function findProject(projectName: string) {
 
     .banner {
         width: 200px;
+        height: auto;
+
+        position: relative;
 
         z-index: -1;
 
-        display: grid;
-        place-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         img {
             transition: cubic-bezier(0.165, 0.84, 0.44, 1) .8s;
 
-            width: 70%;
-            height: auto;
+            position: absolute;
+
+            height: 110px;
+            width: auto;
         }
     }
 
