@@ -10,7 +10,7 @@ const blogEntries: Array<entryType> = [
     { 
         title: 'Kang2 version 1.2 out!',
         desc: 'The second version is finally done! This version is a lot more stable and has a lot more features! (and a vsc extension!)',
-        date: '14 December, 2024',
+        date: '14 January, 2024',
         component: Kang2Version1_2,
         relatedProject: 'kang2',
         color: 'linear-gradient(0.9turn, rgb(255, 115, 0), red)',
@@ -19,7 +19,7 @@ const blogEntries: Array<entryType> = [
     { 
         title: 'Kang2 version 1.1 out!',
         desc: 'My Programming Language Kang2 is getting an update! Lots of fun stuff and really big shifts in the language',
-        date: '04 December, 2024',
+        date: '04 January, 2024',
         component: Kang2Version1_1,
         relatedProject: 'kang2',
         color: 'linear-gradient(0.9turn, rgb(255, 115, 0), red)',
