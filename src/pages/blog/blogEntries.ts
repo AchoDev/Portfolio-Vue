@@ -5,8 +5,18 @@ import AmLauncherFinished from './entries/AmLauncherFinished.vue'
 import LuminaEarlyLook from "./entries/LuminaEarlyLook.vue"
 import Kang2Version1_1 from "./entries/Kang2Version1_1.vue"
 import Kang2Version1_2 from "./entries/kang2version1_2/Kang2Version1_2.vue"
+import Kang2Version1_3 from "./entries/kang2version1_3/Kang2Version1_3.vue"
 
 const blogEntries: Array<entryType> = [
+    { 
+        title: 'Kang2 version FINAL VERSION 1.3 out!',
+        desc: 'The next (and probably last) version of Kang2 is out! Some new features and a lot of bug fixes!',
+        date: '31 January, 2024',
+        component: Kang2Version1_3,
+        relatedProject: 'kang2',
+        color: 'linear-gradient(0.8turn, rgb(255, 115, 0), red)',
+        path: 'kang2-version-1-3'
+    },
     { 
         title: 'Kang2 version 1.2 out!',
         desc: 'The second version is finally done! This version is a lot more stable and has a lot more features! (and a vsc extension!)',

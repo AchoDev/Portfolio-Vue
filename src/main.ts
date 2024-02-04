@@ -24,7 +24,6 @@ import Secret from './pages/projects/pages/Secret.vue'
 
 import App from './App.vue'
 
-
 const routes = [
   {
     path: '/',
