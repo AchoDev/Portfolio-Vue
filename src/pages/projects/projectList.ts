@@ -34,6 +34,12 @@ const projectList: Array<projectType> = [
     color: 'rgb(152, 68, 212)',
   },
   {
+    name: 'Pico-Term', 
+    desc: 'A terminal based text editor. It is very simple and easy to use. It is also very fast and lightweight. It is perfect for people who want to use a terminal based text editor, but don\'t want to use Vim or Emacs',
+    path: 'pico-term',
+    color: 'rgb(42, 65, 163)',
+  },
+  {
     name: 'AM-Launcher', 
     desc: 'Launcher for all kinds of different apps. Add them and organize them on your own volition, to always have a place where you will find your apps.',
     path: 'am-launcher',

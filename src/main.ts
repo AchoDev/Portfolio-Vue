@@ -17,6 +17,7 @@ import AmA from './pages/projects/pages/AmA.vue';
 import Kang2 from './pages/projects/pages/Kang2.vue'
 import YoMastaNag from './pages/projects/pages/YoMastaNag.vue'
 import YOURAnimeList from './pages/projects/pages/YOURAnimeList.vue'
+import PicoTerm from './pages/projects/pages/PicoTerm.vue'
 import AMLauncher from './pages/projects/pages/AMLauncher.vue'
 import BananaWorld from './pages/projects/pages/BananaWorld.vue'
 import Lumina from './pages/projects/pages/Lumina.vue'
@@ -94,6 +95,13 @@ const routes = [
     component: YOURAnimeList,
     meta: {
       title: 'YOURAnimeList',
+    }
+  },
+  {
+    path: '/pico-term',
+    component: PicoTerm,
+    meta: {
+      title: 'Pico-Term',
     }
   },
   {
