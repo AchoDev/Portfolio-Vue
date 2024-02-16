@@ -9,6 +9,8 @@
 
   #content {
     
+    $font-size: 14pt;
+
     :deep(a) {
       text-decoration: none;
       color: rgb(65, 195, 255);
@@ -52,13 +54,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      font-size: $font-size;
     }
   
     :deep(p) {
-      padding-left: 13% !important;
-      padding-right: 13% !important;
+      padding-left: 30% !important;
+      padding-right: 30% !important;
       max-width: 100% !important;
       width: auto;
+      font-size: $font-size;
       text-align: justify;
     }
   
@@ -70,6 +74,7 @@
   
       &> * {
         width: auto;
+        font-size: $font-size;
       }
     }
   
@@ -168,7 +173,7 @@
       max-width: 800px;
       
       overflow-x: scroll;
-  
+      font-size: $font-size;
       margin-left: 100px;
       margin-right: 100px;
       border-radius: 10px;
