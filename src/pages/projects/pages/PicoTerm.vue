@@ -15,7 +15,7 @@ import Footer from '../components/Footer.vue'
   <Banner 
     title="Pico-Term"
     banner="pico-term"
-    download="https://1drv.ms/u/s!AovQFIBO4x5ZiqMqWkDZDih0hTtI_A?e=Pul2Xg"
+    download="https://1drv.ms/u/s!AovQFIBO4x5Ziqo7r2KALTBCmNm4Rg?e=Hhihpk"
     github="https://github.com/AchoDev/Pico-Term"
     createdOn="10 February, 2024"
     publishedOn="15 February, 2024"
@@ -31,11 +31,11 @@ import Footer from '../components/Footer.vue'
 
   <ProjectContent>
 
-    <h2>Description</h2>
+    <!-- <h2>Description</h2> -->
 
-    <blockquote class="warning">
+    <!-- <blockquote class="warning">
       This page is under construction!
-    </blockquote>
+    </blockquote> -->
 
     <h2>Description</h2>
 
@@ -57,18 +57,24 @@ import Footer from '../components/Footer.vue'
 
     <p>As soon as you start it, you'll be greeted by the default interface.</p>
 
-    <img src="" alt="">
-
+    <center>
+      <img src="/projects/pico-term/default.png" alt="Default">
+    </center>
+    
     <p>From here, you can start typing with the usual text editor controls.</p>
-
-    <img src="" alt="">
-
+    
+    <center>
+      <img src="/projects/pico-term/typing.png" alt="Editor">
+    </center>
+    
     <p>Now, as soon as you need to either edit already existing lines or quickly move around, enter <b>Edit Mode</b>, by pressing <code>ALT + J</code></p>
-
-    <img src="" alt="">
-
+    
+    <center>
+      <img src="/projects/pico-term/editmode.png" alt="Editor">
+    </center>
+    
     <p><b>Edit Mode</b> offers a suite of keybinds and controls to edit and move around your file quickly. The controls are: </p>
-
+    
     <div class="list">
       <ul>
         <li><code>Q</code> to switch back to write mode</li>
@@ -80,6 +86,14 @@ import Footer from '../components/Footer.vue'
     </div>
 
     <p>After switching back with <code>Q</code>, you can save the file with <code>CTRL + S</code>. If you opened an already existing file, then that will be saved to. If not, then the file will be saved as <code>new_file.txt</code> to the current directory.</p>
+
+    <center>
+      <img src="/projects/pico-term/saving.png" alt="Editor">
+    </center>
+    <br>
+    <center>
+      <img src="/projects/pico-term/textfile.png" alt="Editor">
+    </center>
 
     <p>And that's all you need to use!</p>
 

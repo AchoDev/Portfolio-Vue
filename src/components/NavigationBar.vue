@@ -34,7 +34,11 @@ nav {
   position: fixed;
   width: 100%;
 
-
+  backdrop-filter: blur(0px);
+  
+  // background: linear-gradient(45deg, rgba(100, 48, 48, 0.458), rgba(63, 35, 79, 0.381));
+  transition: linear .3s;
+  background: transparent;
   height: 75px;
 
   z-index: 30;
@@ -42,7 +46,6 @@ nav {
   box-shadow: none;
   /* background-color: rgb(255, 115, 0); */
 
-  background: transparent;
   
   ul {
     width: auto;
@@ -92,7 +95,7 @@ nav {
     
     // transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) .5s;
 
-    transition: linear 1s;
+    
     &:hover {
       background: none !important;
 
@@ -119,7 +122,7 @@ ul {
 
 html:not([data-scroll='0'])  nav {
   backdrop-filter: blur(10px);
-  background: linear-gradient(45deg, rgba(100, 48, 48, 0.458), rgba(63, 35, 79, 0.381));
+  background: rgba(137, 45, 45, 0.196);
 }
 
 </style>

@@ -25,7 +25,7 @@
     }
 
     :deep(img) {
-      width: 50%;
+      width: 35%;
       text-align: center;
   
       // padding-left: 15%;
@@ -138,6 +138,7 @@
       padding: 2px;
       background: rgba(43, 43, 43, 0.877);
       border-radius: 4px;
+      font-size: $font-size
     }
   
     :deep(h2) {
@@ -201,6 +202,10 @@
       :deep(p) {
         padding-left: 20px !important;
         padding-right: 20px !important;
+      }
+
+      :deep(img) {
+        width: 90%;
       }
   
       :deep(#roadmap) {

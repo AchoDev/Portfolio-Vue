@@ -90,7 +90,7 @@ defineProps<{
     z-index: 1;
     margin: 0;
 
-    background: rgba(0, 30, 71, 0.644);
+    background: rgba(0, 0, 0, 0.801);
     width: 400px;
     text-align: center;
 
@@ -122,8 +122,8 @@ defineProps<{
   }
 
   #bar a {
-    width: 175px;
-    height: 50px;
+    width: 275px;
+    height: 55px;
     font-size: 15pt;
     border: none;
     border-radius: 5px;
