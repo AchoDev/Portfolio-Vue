@@ -93,7 +93,8 @@ nav {
     
     padding-left: 15px;
     
-    // transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) .5s;
+    transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+    transition-delay: .1s;
 
     
     &:hover {
@@ -101,7 +102,7 @@ nav {
 
       // transform: rotate(-10deg) rotateX(-70deg);
 
-      transform: rotate(360deg)
+      transform: rotate(360deg) scale(1.3);
       
     }
 

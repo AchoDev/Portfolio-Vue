@@ -12,12 +12,12 @@
       <div id="project-wrapper">
   
         <div v-for="project in projects">
-          <a class="project-reference" :href="project.path != 'portfolio' ? project.path : '/'">
+          <router-link class="project-reference" :to="project.path != 'portfolio' ? project.path : '/'">
             <div :style="`background: ${project.color}`">
               <img :src="`../projects/${project.path}/small.png`">
               <span :style="'color: '  + project.text ?? 'white'"> {{project.name}} </span>
             </div>
-          </a>
+          </router-link>
         </div>
       </div>
       

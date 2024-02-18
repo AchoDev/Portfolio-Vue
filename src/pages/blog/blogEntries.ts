@@ -6,8 +6,18 @@ import LuminaEarlyLook from "./entries/LuminaEarlyLook.vue"
 import Kang2Version1_1 from "./entries/Kang2Version1_1.vue"
 import Kang2Version1_2 from "./entries/kang2version1_2/Kang2Version1_2.vue"
 import Kang2Version1_3 from "./entries/kang2version1_3/Kang2Version1_3.vue"
+import PicoTermRelease from "./entries/PicoTermRelease.vue"
 
 const blogEntries: Array<entryType> = [
+    { 
+        title: 'Pico-Term, the best terminal based text editor',
+        desc: 'I released Pico-Term yesterday, a new text editor. Kinda like vim, only better!',
+        date: '18 February, 2024',
+        component: PicoTermRelease,
+        relatedProject: 'pico-term',
+        color: 'rgb(42, 65, 163)',
+        path: 'pico-term-release'
+    },
     { 
         title: 'Kang2 version FINAL VERSION 1.3 out!',
         desc: 'The next (and probably last) version of Kang2 is out! Some new features and a lot of bug fixes!',

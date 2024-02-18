@@ -175,6 +175,7 @@
       img="rust.png"
       color="#f74b00"
       :projects= "[
+        pico
       ]"
     />
 
@@ -239,6 +240,12 @@ const uttt: projectType = {
   name: 'Ultra TicTacToe',
   color: 'rgb(250, 68, 55)',
   path: 'ultra-tictactoe'
+}
+
+const pico: projectType = {
+  name: 'Pico-Term',
+  color: 'rgb(250, 68, 55)',
+  path: 'pico-term'
 }
 
 // const shopup: projectType = {

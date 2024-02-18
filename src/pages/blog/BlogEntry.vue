@@ -90,7 +90,7 @@ defineProps<{
         width: calc(80% - 50px);
         height: 80%;
 
-        max-width: 1100px;
+        max-width: 700px;
 
         overflow-x: hidden;
         overflow-y: scroll;
@@ -101,7 +101,7 @@ defineProps<{
 
         margin: 30px;
 
-        padding: 60px;
+        padding: 160px;
 
         @media screen and (max-width: 900px) {
             

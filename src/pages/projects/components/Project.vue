@@ -1,10 +1,10 @@
 
 <template>
 
-<a
+<router-link
   id="project"
   :style="`background: ${props.color}`"
-  :href="props.path"
+  :to="props.path"
 >
 
   <div id="darkener">
@@ -21,7 +21,7 @@
   <div id="overlay">
     {{ desc }}
   </div>
-</a>
+</router-link>
 
 </template>
 
