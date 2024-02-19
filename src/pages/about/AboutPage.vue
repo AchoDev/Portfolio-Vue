@@ -244,7 +244,7 @@ const uttt: projectType = {
 
 const pico: projectType = {
   name: 'Pico-Term',
-  color: 'rgb(250, 68, 55)',
+  color: 'rgb(42, 65, 163)',
   path: 'pico-term'
 }
 
