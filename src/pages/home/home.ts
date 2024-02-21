@@ -104,6 +104,8 @@ let originalCamX = 0;
 let originalCamY = 3;
 let originalCamZ = 3;
 
+let walkMode = true;
+
 let mouseclicked: boolean = false
 let buttonPressed: boolean = false
 
@@ -172,26 +174,6 @@ export function attachDOMElements() {
   })
 }
 
-
-function animate() {
-	requestAnimationFrame( animate );
-
-  if(!mouseclicked || buttonPressed) {
-    camera.rotation.x = camera.rotation.x / 1.05
-    camera.rotation.y = camera.rotation.y / 1.05
-    // camera.position.x = camera.position.x / 1.05
-
-    camera.position.x = (( camera.position.x - originalCamX ) / 1.05 ) + originalCamX
-    camera.position.y = (( camera.position.y - originalCamY ) / 1.05 ) + originalCamY
-    camera.position.z = (( camera.position.z - originalCamZ ) / 1.05 ) + originalCamZ
-  }
-
-
-	renderer.render( scene, camera );
-}
-
-animate();
-
 window.addEventListener('mousedown', () => {
   mouseclicked = true
 });
@@ -208,9 +190,14 @@ const moveAmount: number = 0.001
 const smallMoveAmount: number = 0.0001
 
 window.addEventListener('mousemove', (e) => {
+  
   if(!mouseclicked) {
     camera.rotation.y -= e.movementX * smallMoveAmount
     camera.rotation.x -= e.movementY * smallMoveAmount * 2
+
+    if(walkMode) {
+      return
+    }
 
     camera.position.x -= e.movementX * smallMoveAmount * 2
     camera.position.y += e.movementY * smallMoveAmount * 2
@@ -218,8 +205,84 @@ window.addEventListener('mousemove', (e) => {
     return
   }
   
+  // rotate based on camera rotation
+  // camera.rotation.y -= 
+
   camera.rotation.y += e.movementX * moveAmount
   camera.rotation.x += e.movementY * moveAmount
+
+  console.log(camera.rotation.x)
+  console.log(camera.rotation.y)
+  console.log(camera.rotation.z)
+  console.log("")
+
 })
+
+document.addEventListener('keypress', (e) => {
+  if(e.key === "w") {
+    moveForward = true
+  }
+
+  if(e.key === "s") {
+    camera.position.z += 0.1
+  }
+
+  if(e.key === "a") {
+    camera.position.x -= 0.1
+  }
+
+  if(e.key === "d") {
+    camera.position.x += 0.1
+  }
+
+  if(e.key === "q") {
+    camera.position.y -= 0.1
+  }
+
+  if(e.key === "e") {
+    camera.position.y += 0.1
+  }
+})
+
+document.addEventListener('keyup', (e) => {
+  if(e.key === "w") {
+    moveForward = false
+  }
+})
+
+let moveForward = false;
+
+function translateForward(vector: THREE.Vector3, distance: number) {
+  const x = distance * Math.sin(camera.rotation.y)
+  const y = distance * Math.sin(camera.rotation.x)
+  const z = distance * Math.cos(camera.rotation.y)
+  
+  camera.position.x -= x
+  camera.position.y += y
+  camera.position.z -= z
+}
+
+function animate() {
+	requestAnimationFrame( animate );
+
+  if(moveForward) {
+    translateForward(camera.position, 0.1)
+  }
+
+  if((!mouseclicked || buttonPressed) && !walkMode) {
+    camera.rotation.x = camera.rotation.x / 1.05
+    camera.rotation.y = camera.rotation.y / 1.05
+    // camera.position.x = camera.position.x / 1.05
+
+    camera.position.x = (( camera.position.x - originalCamX ) / 1.05 ) + originalCamX
+    camera.position.y = (( camera.position.y - originalCamY ) / 1.05 ) + originalCamY
+    camera.position.z = (( camera.position.z - originalCamZ ) / 1.05 ) + originalCamZ
+  }
+
+
+	renderer.render( scene, camera );
+}
+
+animate();
 
 export const debugref = light
