@@ -13,6 +13,7 @@ const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer()
 
 function setSceneValues() {
   camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000)
+  camera.rotation.order = 'YXZ'
   renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
@@ -190,72 +191,60 @@ const moveAmount: number = 0.001
 const smallMoveAmount: number = 0.0001
 
 window.addEventListener('mousemove', (e) => {
-  
-  if(!mouseclicked) {
+
+  if(!mouseclicked && !walkMode) {
     camera.rotation.y -= e.movementX * smallMoveAmount
     camera.rotation.x -= e.movementY * smallMoveAmount * 2
 
-    if(walkMode) {
-      return
-    }
 
     camera.position.x -= e.movementX * smallMoveAmount * 2
     camera.position.y += e.movementY * smallMoveAmount * 2
     
     return
+  } else if(walkMode && mouseclicked) {
+    camera.rotation.y += e.movementX * moveAmount
+    camera.rotation.x += e.movementY * moveAmount
   }
-  
-  // rotate based on camera rotation
-  // camera.rotation.y -= 
-
-  camera.rotation.y += e.movementX * moveAmount
-  camera.rotation.x += e.movementY * moveAmount
-
-  console.log(camera.rotation.x)
-  console.log(camera.rotation.y)
-  console.log(camera.rotation.z)
-  console.log("")
-
 })
 
 document.addEventListener('keypress', (e) => {
   if(e.key === "w") {
-    moveForward = true
+    moveDirection.x = 1
   }
 
   if(e.key === "s") {
-    camera.position.z += 0.1
+    moveDirection.x = -1
   }
 
   if(e.key === "a") {
-    camera.position.x -= 0.1
+    moveDirection.y = -1
   }
 
   if(e.key === "d") {
-    camera.position.x += 0.1
+    moveDirection.y = 1
   }
 
   if(e.key === "q") {
-    camera.position.y -= 0.1
+    moveDirection.z = -1
   }
 
   if(e.key === "e") {
-    camera.position.y += 0.1
+    moveDirection.z = 1
   }
 })
 
 document.addEventListener('keyup', (e) => {
   if(e.key === "w") {
-    moveForward = false
+    moveDirection.x = 0
   }
 })
 
-let moveForward = false;
+let moveDirection: THREE.Vector3 = new THREE.Vector3(0, 0, 0);
 
 function translateForward(vector: THREE.Vector3, distance: number) {
-  const x = distance * Math.sin(camera.rotation.y)
-  const y = distance * Math.sin(camera.rotation.x)
-  const z = distance * Math.cos(camera.rotation.y)
+  const x = vector.x * distance * Math.sin(camera.rotation.y)
+  const y = vector.y * distance * Math.sin(camera.rotation.x)
+  const z = vector.z * distance * Math.cos(camera.rotation.y)
   
   camera.position.x -= x
   camera.position.y += y
@@ -265,9 +254,13 @@ function translateForward(vector: THREE.Vector3, distance: number) {
 function animate() {
 	requestAnimationFrame( animate );
 
-  if(moveForward) {
-    translateForward(camera.position, 0.1)
-  }
+  
+  translateForward(moveDirection, 0.1)
+  
+
+  // camera.rotation.x += moveAmount * 5
+  // camera.rotation.z += moveAmount
+
 
   if((!mouseclicked || buttonPressed) && !walkMode) {
     camera.rotation.x = camera.rotation.x / 1.05

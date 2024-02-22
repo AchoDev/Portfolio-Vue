@@ -114,6 +114,7 @@ const debugControls = ref<boolean>(false)
     place-items: center;
     
     canvas {
+      cursor: none;
       width: auto !important;
       height: 100vh !important;
     }
