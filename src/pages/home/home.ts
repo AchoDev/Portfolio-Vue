@@ -234,8 +234,26 @@ document.addEventListener('keypress', (e) => {
 })
 
 document.addEventListener('keyup', (e) => {
-  if(e.key === "w") {
-    moveDirection.x = 0
+  switch(e.key) {
+    case 'w':
+      moveDirection.x = 0
+      break
+    case 's':
+      moveDirection.x = 0
+      break
+    case 'a':
+      moveDirection.y = 0
+      break
+    case 'd':
+      moveDirection.y = 0
+      break
+    case 'q':
+      moveDirection.z = 0
+      break
+    case 'e':
+      moveDirection.z = 0
+      break
+
   }
 })
 
@@ -243,8 +261,10 @@ let moveDirection: THREE.Vector3 = new THREE.Vector3(0, 0, 0);
 
 function translateForward(vector: THREE.Vector3, distance: number) {
   const x = vector.x * distance * Math.sin(camera.rotation.y)
-  const y = vector.y * distance * Math.sin(camera.rotation.x)
-  const z = vector.z * distance * Math.cos(camera.rotation.y)
+  const y = vector.x * distance * Math.sin(camera.rotation.x)
+  const z = vector.x * distance * Math.cos(camera.rotation.y)
+
+  console.log(camera.rotation.x)
   
   camera.position.x -= x
   camera.position.y += y
