@@ -210,8 +210,8 @@ window.addEventListener('mousemove', (e) => {
     
     return
   } else if(mouseclicked) {
-    camera.rotation.y += e.movementX * moveAmount
-    camera.rotation.x += e.movementY * moveAmount
+    camera.rotation.y += e.movementX * moveAmount * (walkMode ? 1.5 : 1) 
+    camera.rotation.x += e.movementY * moveAmount * (walkMode ? 1.5 : 1)
   }
 })
 
