@@ -54,10 +54,15 @@
   </div> -->
   
   <div id="information">
-    <span>Drag to move the camera around</span>
+    <button v-show="!flyin" id="flight-button" @click="flyin = true">Press to fly :)</button>
+    <span v-show="!flyin">Drag to move the camera around</span>
+
+
+    <button v-show="flyin" id="no-flight-button" @click="flyin = false">Stop flying :(</button>
+    <span v-show="flyin">W, A, S, D to fly around.</span>
   </div>
 
-  <div id="movement">
+  <div id="movement" v-show="!flyin">
 
     <button>
       <img src="./arrow.png">
@@ -102,6 +107,7 @@ onMounted(() => {
 })
 
 const debugControls = ref<boolean>(false)
+const flyin = ref<boolean>(false)
 
 </script>
 
@@ -136,6 +142,41 @@ const debugControls = ref<boolean>(false)
   #information {
     position: absolute;
     bottom: 0;
+
+    user-select: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    // gap: 1px;
+    padding: 10px;
+
+    button {
+      background: rgba(42, 42, 42, 0.744);
+      border: none;
+
+      height: 30px;
+      width: 150px;
+      text-align: center;
+      color: white;
+
+      border-radius: 10px;
+      font-family:'Courier New', Courier, monospace;
+
+      cursor: pointer;
+
+      transition: ease-out .1s;
+      &:hover {
+        background: rgba(42, 42, 42, 0.918);
+        transform: scale(1.1);
+      }
+
+      &:active {
+        background: rgba(42, 42, 42, 0.918);
+        transform: scale(1.05);
+      }
+    }
 
     color: rgba(255, 255, 255, 0.31);
   }

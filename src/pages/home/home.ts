@@ -105,7 +105,7 @@ let originalCamX = 0;
 let originalCamY = 3;
 let originalCamZ = 3;
 
-let walkMode = true;
+let walkMode = false;
 
 let mouseclicked: boolean = false
 let buttonPressed: boolean = false
@@ -173,6 +173,13 @@ export function attachDOMElements() {
       buttonPressed = false
     }
   })
+
+  document.getElementById("flight-button")?.addEventListener('click', () => {
+    walkMode = true;
+  })
+  document.getElementById("no-flight-button")?.addEventListener('click', () => {
+    walkMode = false;
+  })
 }
 
 window.addEventListener('mousedown', () => {
@@ -192,16 +199,17 @@ const smallMoveAmount: number = 0.0001
 
 window.addEventListener('mousemove', (e) => {
 
-  if(!mouseclicked && !walkMode) {
+  if(!mouseclicked) {
     camera.rotation.y -= e.movementX * smallMoveAmount
     camera.rotation.x -= e.movementY * smallMoveAmount * 2
 
-
-    camera.position.x -= e.movementX * smallMoveAmount * 2
-    camera.position.y += e.movementY * smallMoveAmount * 2
+    if(!walkMode) {
+      camera.position.x -= e.movementX * smallMoveAmount * 2
+      camera.position.y += e.movementY * smallMoveAmount * 2
+    }
     
     return
-  } else if(walkMode && mouseclicked) {
+  } else if(mouseclicked) {
     camera.rotation.y += e.movementX * moveAmount
     camera.rotation.x += e.movementY * moveAmount
   }
@@ -260,11 +268,9 @@ document.addEventListener('keyup', (e) => {
 let moveDirection: THREE.Vector3 = new THREE.Vector3(0, 0, 0);
 
 function translateForward(vector: THREE.Vector3, distance: number) {
-  const x = vector.x * distance * Math.sin(camera.rotation.y)
-  const y = vector.x * distance * Math.sin(camera.rotation.x)
-  const z = vector.x * distance * Math.cos(camera.rotation.y)
-
-  console.log(camera.rotation.x)
+  const x = vector.x * distance * Math.sin(camera.rotation.y) - vector.y * distance * Math.cos(camera.rotation.y)
+  const y = vector.x * distance * Math.sin(camera.rotation.x) + vector.z * distance
+  const z = vector.x * distance * Math.cos(camera.rotation.y) + vector.y * distance * Math.sin(camera.rotation.y)
   
   camera.position.x -= x
   camera.position.y += y
