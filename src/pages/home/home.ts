@@ -194,8 +194,11 @@ window.addEventListener('mouseup', () => {
 //   e.preventDefault();
 // }, {passive: false});
 
-const moveAmount: number = 0.001
-const smallMoveAmount: number = 0.0001
+const moveAmount: number = 0.075
+const smallMoveAmount: number = 0.00025
+
+let lastFrameTime = Date.now() 
+let deltaTime = 1
 
 window.addEventListener('mousemove', (e) => {
 
@@ -210,9 +213,9 @@ window.addEventListener('mousemove', (e) => {
     
     return
   } else if(mouseclicked) {
-    camera.rotation.y += e.movementX * moveAmount * (walkMode ? 1.5 : 1) 
-    camera.rotation.x += e.movementY * moveAmount * (walkMode ? 1.5 : 1)
-  }
+    camera.rotation.y += e.movementX * moveAmount * (walkMode ? -2 : 1) * deltaTime
+    camera.rotation.x += e.movementY * moveAmount * (walkMode ? -2 : 1) * deltaTime
+  }  
 })
 
 document.addEventListener('keypress', (e) => {
@@ -268,6 +271,7 @@ document.addEventListener('keyup', (e) => {
 let moveDirection: THREE.Vector3 = new THREE.Vector3(0, 0, 0);
 
 function translateForward(vector: THREE.Vector3, distance: number) {
+  distance *= deltaTime
   const x = vector.x * distance * Math.sin(camera.rotation.y) - vector.y * distance * Math.cos(camera.rotation.y)
   const y = vector.x * distance * Math.sin(camera.rotation.x) + vector.z * distance
   const z = vector.x * distance * Math.cos(camera.rotation.y) + vector.y * distance * Math.sin(camera.rotation.y)
@@ -280,8 +284,13 @@ function translateForward(vector: THREE.Vector3, distance: number) {
 function animate() {
 	requestAnimationFrame( animate );
 
-  
-  translateForward(moveDirection, 0.1)
+  deltaTime = (Date.now() - lastFrameTime) / 1000
+  lastFrameTime = Date.now()
+
+  if(walkMode) {
+    translateForward(moveDirection, 4)
+  }
+
   
 
   // camera.rotation.x += moveAmount * 5
