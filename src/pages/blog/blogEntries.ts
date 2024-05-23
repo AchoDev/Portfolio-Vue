@@ -7,8 +7,18 @@ import Kang2Version1_1 from "./entries/Kang2Version1_1.vue"
 import Kang2Version1_2 from "./entries/kang2version1_2/Kang2Version1_2.vue"
 import Kang2Version1_3 from "./entries/kang2version1_3/Kang2Version1_3.vue"
 import PicoTermRelease from "./entries/PicoTermRelease.vue"
+import PicoTermUpdate1 from "./entries/PicoTermUpdate1/PicoTermUpdate1.vue"
 
 const blogEntries: Array<entryType> = [
+    { 
+        title: 'Pico-Term, is now officially better than vim (Update 1)',
+        desc: 'Pico-Term got its first major update! Lots of new features (I swear this is interesting)',
+        date: '23 May, 2024',
+        component: PicoTermUpdate1,
+        relatedProject: 'pico-term',
+        color: 'rgb(42, 65, 163)',
+        path: 'pico-term-update-1'
+    },
     { 
         title: 'Pico-Term, the best terminal based text editor',
         desc: 'I released Pico-Term yesterday, a new text editor. Kinda like vim, only better!',

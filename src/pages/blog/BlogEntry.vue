@@ -159,7 +159,7 @@ defineProps<{
         }
 
         :deep(img) {
-            max-width: 70%;
+            max-width: 80%;
             border-radius: 10px;
         }
         
