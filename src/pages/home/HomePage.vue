@@ -93,6 +93,18 @@
     </button>
 
   </div>
+
+  <footer>
+    <a href="https://github.com/AchoDev/Portfolio-Vue" target="_blank">
+      <img src="/github.png" alt="Github">
+    </a>
+    <router-link to="/changelog">
+      <img src="./changelog.png" alt="Changelog">
+    </router-link>
+    <router-link to="/contact">
+      <img src="./contact.png" alt="Contact">
+    </router-link>
+  </footer>
 </div>
 
 </template>
@@ -142,6 +154,9 @@ const flyin = ref<boolean>(false)
   #information {
     position: absolute;
     bottom: 0;
+    right: 0;
+
+    // width: 100%;
 
     user-select: none;
 
@@ -295,6 +310,36 @@ const flyin = ref<boolean>(false)
       }
     }
     
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    height: auto;
+    padding: 0;
+    margin: 20px;
+    gap: 20px;
+    display: flex;
+
+    a {
+      width: 30px;
+      height: 30px;
+      img {
+        width: 100%;
+        height: auto;
+
+        opacity: 0.3;
+      }
+
+      transition: ease-out .1s;
+      &:hover {
+        transform: scale(1.1);
+
+        img {
+          opacity: 0.7;
+        }
+      }
+    }
   }
 
   @media only screen and (max-width: 700px) {

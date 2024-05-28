@@ -79,6 +79,10 @@
       <img src="./editor.png" alt="Pico-Term Editor" />
     </center>
 
+    <p>
+      Here you can type anything you need, just like before
+    </p>
+
 
     <br />
     <br />

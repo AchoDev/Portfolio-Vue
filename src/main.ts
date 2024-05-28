@@ -34,6 +34,13 @@ const routes = [
     }
   },
   {
+    path: '/changelog',
+    component: HomePage,
+    meta: {
+      title: 'Home'
+    }
+  },
+  {
     path: '/about',
     component: AboutPage,
     meta: {
