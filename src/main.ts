@@ -38,7 +38,8 @@ const routes = [
     component: HomePage,
     meta: {
       title: 'Home'
-    }
+    },
+    props: {changelog: true}
   },
   {
     path: '/about',
