@@ -34,6 +34,14 @@ const routes = [
     },
   },
   {
+    path: '/:page',
+    component: HomePage,
+    props: true,
+    meta: {
+      title: 'Home',
+    },
+  },
+  {
     path: '/about',
     component: AboutPage,
     meta: {

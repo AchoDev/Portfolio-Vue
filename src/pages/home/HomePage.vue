@@ -94,7 +94,7 @@
 
   </div>
 
-  <dialog-box :opened="false">
+  <dialog-box :opened="page == 'changelog'">
     <ChangeLog />
   </dialog-box>
 
@@ -120,9 +120,9 @@ import DialogBox from '../../components/DialogBox.vue';
 import { ref, onMounted } from 'vue';
 import { attachDOMElements } from './home.ts'
 
-// defineProps<{
-//   page?: string
-// }>()
+defineProps<{
+  page?: string
+}>()
 
 onMounted(() => {
   attachDOMElements()

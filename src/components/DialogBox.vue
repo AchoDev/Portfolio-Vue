@@ -1,8 +1,8 @@
 <template>
 
-<teleport to='body' @click="open = false">
-    <div id="dialog-wrapper" :class="{open}">
-        <div id="dialog-body">
+<teleport to='body'>
+    <div id="dialog-wrapper" :class="{open}" @click="router.back()">
+        <div id="dialog-body" @click.stop>
             <slot />
         </div>
     </div>
@@ -12,23 +12,43 @@
 </template>
 
 <script setup lang="ts">
+import { ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
 
-const open = defineModel()
+// import { watch } from 'vue';
 
 const props = defineProps<{
-    opened: boolean | null
+    opened: boolean,
 }>()
 
-open.value = props.opened || false;
+const open = ref<boolean>(props.opened)
+
+watch(props, () => {
+    open.value = props.opened
+})
+
+const router = useRouter()
+
+// const open = defineModel()
+
+// const props = defineProps<{
+//     opened?: boolean
+// }>()
+
+// open.value = props.opened || false;
+
+// watch(props, () => {
+//     open.value = props.opened || false
+// })
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 
 #dialog-wrapper {
     
-    transition: linear .5s;
+    transition: linear .2s;
     position: absolute;
     top: 0;
     left: 0;
@@ -36,8 +56,8 @@ open.value = props.opened || false;
 
     z-index: 40;
 
-    width: 100%;
-    height: 100%;
+    width: 100dvw;
+    height: 100dvh;
     background: rgba(0, 0, 0, 0.491);
     display: grid;
     place-items: center;
@@ -45,20 +65,32 @@ open.value = props.opened || false;
     pointer-events: none;
 
     #dialog-body {
+
         width: 70%;
         height: 80%;
 
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        border-radius: 10px;
+
+        padding: 0;
+
         transform: scale(1.2);
-        transition: ease-out .3s;
+        transition: cubic-bezier(0.165, 0.84, 0.44, 1) .2s;
+
+        &::-webkit-scrollbar-track {
+            background: transparent;
+        }
     }
 }
 
 .open {
     opacity: 1 !important;
-    pointer-events: all;
+    pointer-events: all !important;
 
     #dialog-body {
-        transform: scale(1);
+        transform: scale(1) !important;
     }
 }
 

@@ -1,6 +1,6 @@
 <template>
 
-<div>
+<div id="body">
     <h1>Changelog</h1>
     <p>This is where I document all the changes made to this site over time</p>
 
@@ -20,12 +20,20 @@ import {changelogEntries} from './changelog'
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
-div {
+#body {
     width: 100%;
     height: 100%;
-    background: rgb(22, 55, 102);
+    overflow: auto;
+    padding: 30px;
+    background: linear-gradient(
+        60deg,
+        rgb(60, 60, 130),
+        rgb(151, 0, 0),
+    );
 }
+
+
 
 </style>
