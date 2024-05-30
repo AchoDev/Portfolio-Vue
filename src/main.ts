@@ -31,15 +31,7 @@ const routes = [
     component: HomePage,
     meta: {
       title: 'Home',
-    }
-  },
-  {
-    path: '/changelog',
-    component: HomePage,
-    meta: {
-      title: 'Home'
     },
-    props: {changelog: true}
   },
   {
     path: '/about',
@@ -141,7 +133,7 @@ const routes = [
     }
   },
   {
-    path: '/:notFound',
+    path: '/not-found',
     component: NotFound,
   },
 ]

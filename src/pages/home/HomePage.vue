@@ -94,6 +94,10 @@
 
   </div>
 
+  <dialog-box :opened="false">
+    <ChangeLog />
+  </dialog-box>
+
   <footer>
     <a href="https://github.com/AchoDev/Portfolio-Vue" target="_blank">
       <img src="/github.png" alt="Github">
@@ -111,8 +115,14 @@
 
 <script setup lang="ts">
 
+import ChangeLog from './ChangeLog.vue';
+import DialogBox from '../../components/DialogBox.vue';
 import { ref, onMounted } from 'vue';
 import { attachDOMElements } from './home.ts'
+
+// defineProps<{
+//   page?: string
+// }>()
 
 onMounted(() => {
   attachDOMElements()
