@@ -72,20 +72,26 @@ const router = useRouter()
         overflow-y: scroll;
         overflow-x: hidden;
 
-        scroll-padding: 0;
-
         border-radius: 10px;
 
-        padding: 0;
+        background: linear-gradient(
+            60deg,
+            rgb(60, 60, 130),
+            rgb(151, 0, 0),
+        );
+
+      
 
         transform: scale(1.2);
         transition: cubic-bezier(0.165, 0.84, 0.44, 1) .2s;
 
         &::-webkit-scrollbar-track {
             background: transparent;
+            // border-radius: 10px;
         }
-
+        
         &::-webkit-scrollbar {
+            overflow: hidden;
             position: absolute;
             right: 0;
         }

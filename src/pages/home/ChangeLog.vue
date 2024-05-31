@@ -27,11 +27,6 @@ import {changelogEntries} from './changelog'
     height: 100%;
     overflow: auto;
     padding: 30px;
-    background: linear-gradient(
-        60deg,
-        rgb(60, 60, 130),
-        rgb(151, 0, 0),
-    );
 }
 
 
