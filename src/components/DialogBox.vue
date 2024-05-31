@@ -72,6 +72,8 @@ const router = useRouter()
         overflow-y: scroll;
         overflow-x: hidden;
 
+        scroll-padding: 0;
+
         border-radius: 10px;
 
         padding: 0;
@@ -81,6 +83,11 @@ const router = useRouter()
 
         &::-webkit-scrollbar-track {
             background: transparent;
+        }
+
+        &::-webkit-scrollbar {
+            position: absolute;
+            right: 0;
         }
     }
 }
