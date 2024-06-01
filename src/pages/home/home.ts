@@ -19,7 +19,7 @@ function setSceneValues() {
 
 setSceneValues()
 
-scene.background = new THREE.Color('#000000') 
+scene.background = new THREE.Color('#FFFFFFF') 
 
 renderer.shadowMap.type = THREE.PCFSoftShadowMap
 // renderer.shadowMap.enabled = true
@@ -62,7 +62,8 @@ loader.load(
 // lights
 // '#9A5FC0'
 
-const ambient = new THREE.AmbientLight(0xFFFFFF, 0.5)
+const ambient = new THREE.AmbientLight(0xFFFFFF, 1)
+const secretRoomLight = new THREE.SpotLight(0xffffd9, 100, 100, 250, 0.25)
 const light = new THREE.SpotLight(0xffffd9, 100, 100, 250, 0.25)
 light.shadow.bias = -0.0005
 light.castShadow = true
@@ -77,6 +78,9 @@ function setInitialTransforms() {
 
   light.position.set(0, 5.67, -0.5)
   light.rotation.set(8, 3.1, 0)
+  
+  secretRoomLight.position.set(0, 5.67, -0.5)
+  secretRoomLight.rotation.set(8, 3.1, 0)
 
   monitorlight1.position.set(0.3, 2.3, -1.8)
   monitorlight1.rotation.set(0, 3, 0)
