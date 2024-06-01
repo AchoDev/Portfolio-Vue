@@ -8,8 +8,13 @@ interface ChangelogEntry {
 
 const changelogEntries = <ChangelogEntry[]>[
     {
+        title: "Updated home room model",
+        date: "1 June, 2024",
+        description: "The home menu got some new assets: Cup of tea, a new rubiks cube and a secret....",
+    },
+    {
         title: "Changelog entry page created!",
-        date: "32 May, 2024",
+        date: "31 May, 2024",
         description: "So, this is where I'll document changes for this website. Since there's gonna be some changees in the future, I decided to quickly code this up + it makes the site way more lively and fun to explore",
     }
 ]
