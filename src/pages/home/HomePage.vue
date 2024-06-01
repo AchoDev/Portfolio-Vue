@@ -350,18 +350,36 @@ const flyin = ref<boolean>(false)
         }
       }
     }
+
+    @media only screen and (max-width: 700px) {
+      // left: 0;
+      // flex-direction: column;
+
+      // top: 50%;
+      // bottom: 50%;
+      // transform: translateY(-50%)
+
+      bottom: 0;
+      right: 0;
+
+      a {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
 
   @media only screen and (max-width: 700px) {
     #movement {
-
       width: 175px;
       height: 175px;
 
-      left: 50%;
-      right: 50%;
+      // left: 50%;
+      right: 10px;
+      left: auto;
+      bottom: 80px;
 
-      transform: translate(-50%);
+      // transform: translate(-50%);
     
       button {
         width: 50px;

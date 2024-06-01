@@ -8,7 +8,7 @@
 
         <p id="bottom">{{ description }}</p>
 
-        <button @click="collapse()" @click.stop>^ Collapse</button>
+        <div id="collapse" @click="collapse()" @click.stop>^ Collapse</div>
     </div>
 </template>
 
@@ -103,9 +103,12 @@ function collapse() {
         }
     }
 
-    button {
+    #collapse {
         width: 120px;
         height: 30px;
+
+        display: grid;
+        place-items: center;
         border: none;
         background: rgba(255, 255, 255, 0.889);
         color: black;
