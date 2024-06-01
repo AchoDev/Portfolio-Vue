@@ -63,7 +63,7 @@ loader.load(
 // '#9A5FC0'
 
 const ambient = new THREE.AmbientLight(0xFFFFFF, 1)
-const secretRoomLight = new THREE.SpotLight(0xffffd9, 100, 100, 250, 0.25)
+const secretRoomLight = new THREE.SpotLight(0xffffd9, 100, 100, 650, 0.25)
 const light = new THREE.SpotLight(0xffffd9, 100, 100, 250, 0.25)
 light.shadow.bias = -0.0005
 light.castShadow = true
@@ -79,7 +79,7 @@ function setInitialTransforms() {
   light.position.set(0, 5.67, -0.5)
   light.rotation.set(8, 3.1, 0)
   
-  secretRoomLight.position.set(0, 5.67, -0.5)
+  secretRoomLight.position.set(-9.8, 4, 1.75)
   secretRoomLight.rotation.set(8, 3.1, 0)
 
   monitorlight1.position.set(0.3, 2.3, -1.8)
@@ -95,7 +95,8 @@ function setInitialTransforms() {
 
 function addObjectsToScene() {
   scene.add(light)
-  // scene.add(ambient)
+  scene.add(secretRoomLight)
+  scene.add(ambient)
   scene.add(monitorlight1)
   scene.add(monitorlight2)
 
@@ -283,6 +284,8 @@ function translateForward(vector: THREE.Vector3, distance: number) {
   camera.position.x -= x
   camera.position.y += y
   camera.position.z -= z
+
+  console.log(camera.position)
 }
 
 function animate() {
