@@ -10,7 +10,7 @@ const changelogEntries = <ChangelogEntry[]>[
     {
         title: "Updated home room model",
         date: "1 June, 2024",
-        description: "The home menu got some new assets: Cup of tea, a new rubiks cube, some new books and a secret....",
+        description: "The home menu got some new assets: Cup of tea, a new rubiks cube, nice headphones, some new books and a secret....",
     },
     {
         title: "Changelog entry page created!",
