@@ -1,35 +1,39 @@
 <template>
 
-<span :style="{
-    background: link.color
-}">
-    <span id="container">
-        <img :src="link.smallImg" alt="Image">
-        {{ link.title }}
+<router-link :to="link.path">
+    <span :style="{
+        background: link.color
+    }">
+        <span id="container">
+            <img :src="link.smallImg" alt="Image">
+            {{ link.title }}
+        </span>
     </span>
-</span>
+</router-link>
 
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { projectList } from '../projects';
 
 interface Hyperlink {
     smallImg: string,
     title: string,
     color: string,
+    path: string,
 }
 
 const props = defineProps<{
     to: string,
 }>()
 
-const link: Hyperlink = {
+const link = ref<Hyperlink>({
     smallImg: '../question.jpeg',
     title: `"${props.to}" not found`,
-    color: 'white'
-}
+    color: 'white',
+    path: '/'
+})
 
 
 onMounted(() => {
@@ -37,10 +41,11 @@ onMounted(() => {
 
     if (writtenProjectRes != null)
     {
-        link.color = writtenProjectRes.color
-        link.smallImg = `../projects/${writtenProjectRes.path}/small.png`
-        link.title = writtenProjectRes.name
-
+        link.value.color = writtenProjectRes.color
+        link.value.smallImg = `../projects/${writtenProjectRes.path}/small.png`
+        link.value.title = writtenProjectRes.name
+        
+    
         return
     }
 })
