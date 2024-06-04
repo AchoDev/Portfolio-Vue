@@ -43,7 +43,7 @@
 
 import Project from './components/Project.vue';
 
-import projectList from './projectList.ts'
+import { projectList } from '../../projects.ts'
 
 </script>
 

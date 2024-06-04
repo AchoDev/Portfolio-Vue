@@ -1,5 +1,10 @@
-
-import projectType from "./projectType"
+interface projectType {
+    name: string
+    desc: string
+    path: string
+    color: string
+    text?: string
+}
 
 const projectList: Array<projectType> = [
   {
@@ -66,4 +71,4 @@ const projectList: Array<projectType> = [
   },
 ]
 
-export default projectList
+export {projectList, type projectType}

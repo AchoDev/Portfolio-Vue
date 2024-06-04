@@ -31,8 +31,7 @@
 <script setup lang="ts">
 
 import { watch, shallowRef } from 'vue';
-import projectList from '../projects/projectList';
-import projectType from "../projects/projectType"
+import { projectList, projectType } from '../../projects';
 
 import blogEntries from './blogEntries';
 import BlogEntry from './BlogEntry.vue'

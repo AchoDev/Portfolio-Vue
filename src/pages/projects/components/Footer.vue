@@ -25,7 +25,7 @@
 <script setup lang="ts">
 
 import Project from './Project.vue';
-import projectList from '../projectList';
+import { projectList } from '../../../projects';
 import { ref } from 'vue';
 
 const getRandomProj = () => projectList[Math.floor(Math.random() * projectList.length)]

@@ -3,7 +3,9 @@
     <h1 id="under-construction">This page is under construction!</h1>
     <h1>Pico-Term Major Update!</h1>
 
+    
     <p>
+      <Hyperlink to="pico-term" />
       Hello Everyone, today I finally finished the first major update for
       Pico-Term. I haven't been writing anything on this site for like 3 months
       now, because I've been cooking up some things in the background. Now I'm
@@ -93,7 +95,9 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import Hyperlink from '../../../../components/Hyperlink.vue';
+</script>
 
 <style>
 #under-construction {
