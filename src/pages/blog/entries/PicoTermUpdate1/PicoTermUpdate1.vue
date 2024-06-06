@@ -5,7 +5,7 @@
 
     
     <p>
-      <Hyperlink to="pico-term" />
+      <Hyperlink to="ama" />
       Hello Everyone, today I finally finished the first major update for
       Pico-Term. I haven't been writing anything on this site for like 3 months
       now, because I've been cooking up some things in the background. Now I'm

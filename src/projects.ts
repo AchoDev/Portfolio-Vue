@@ -1,4 +1,4 @@
-interface projectType {
+interface ProjectType {
     name: string
     desc: string
     path: string
@@ -6,7 +6,7 @@ interface projectType {
     text?: string
 }
 
-const projectList: Array<projectType> = [
+const projectList: Array<ProjectType> = [
   {
     name: 'AmA',
     desc: 'Digital vocabulary book && note taking desktop application, made for language learners, who like writing down learned words and keeping them organized',
@@ -71,4 +71,4 @@ const projectList: Array<projectType> = [
   },
 ]
 
-export {projectList, type projectType}
+export {projectList, type ProjectType}
