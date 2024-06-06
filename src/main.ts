@@ -12,6 +12,8 @@ import ProjectPage from './pages/projects/ProjectsPage.vue'
 import HomePage from './pages/home/HomePage.vue'
 import BlogPage from './pages/blog/BlogPage.vue'
 
+import FunFactory from './pages/fun/FunFactory.vue'
+
 import UltraTictactoe from './pages/projects/pages/UltraTictactoe.vue'
 import AmA from './pages/projects/pages/AmA.vue';
 import Kang2 from './pages/projects/pages/Kang2.vue'
@@ -40,6 +42,13 @@ const routes = [
     meta: {
       title: 'Home',
     },
+  },
+  {
+    path: '/fun',
+    component: FunFactory,
+    meta: {
+      title: 'Fun Factory',
+    }
   },
   {
     path: '/about',

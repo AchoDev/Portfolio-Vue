@@ -112,6 +112,9 @@
     <router-link to="/contact">
       <img src="./contact.png" alt="Contact">
     </router-link>
+    <router-link to="/fun">
+      <img src="./smiley.png" alt="Fun factory">
+    </router-link>
   </footer>
 </div>
 
