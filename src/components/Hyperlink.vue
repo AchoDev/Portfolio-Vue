@@ -20,7 +20,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
 import { projectList, ProjectType } from '../projects';
-import { useRouter } from 'vue-router';
+// import { useRouter } from 'vue-router';
 // import Project from '../pages/about/projectType';
 
 // interface Hyperlink {
@@ -84,9 +84,10 @@ onMounted(() => {
     &:hover {
         transform: scale(1.1) rotate(-2deg);
         animation-name: hover-animation;
-        animation-duration: 2s;
+        animation-duration: 0.4s;
         animation-iteration-count: infinite;
         animation-delay: .2s;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
         &::after {
             left: 0;

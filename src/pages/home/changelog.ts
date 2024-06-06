@@ -8,6 +8,11 @@ interface ChangelogEntry {
 
 const changelogEntries = <ChangelogEntry[]>[
     {
+        title: "Hyperlink buttons!",
+        date: "6 June, 2024",
+        description: "I added these nice hyperlink buttons with animations and such done for them, that are good and easy to use and follow",
+    },
+    {
         title: "Updated home room model",
         date: "1 June, 2024",
         description: "The home menu got some new assets: Cup of tea, a new rubiks cube, nice headphones, some new books and a secret....",
