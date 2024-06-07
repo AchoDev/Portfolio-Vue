@@ -83,7 +83,7 @@ onMounted(() => {
         left: 0px;
         background: rgb(255, 255, 255);
         border-radius: 100%;
-        // filter: blur(3px);
+        filter: blur(3px);
         position: absolute;
 
         opacity: 1;
