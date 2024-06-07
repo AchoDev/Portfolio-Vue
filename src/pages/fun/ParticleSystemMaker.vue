@@ -13,11 +13,18 @@
             <input v-model="size" type="range" min="0" max="10">
             {{ size }}
         </div>
+
+        <div>
+            Emission:
+            <input v-model="emission" type="range" min="0" max="10">
+            {{ emission }}
+        </div>
     </div>
 
     <ParticleSystem 
         :speed="speed"
         :size="size"
+        :emission="emission"
     />
 
 </div>
@@ -28,8 +35,9 @@
 import { ref } from 'vue';
 import ParticleSystem from '../../components/ParticleSystem.vue';
 
-const speed = ref<number>(0)
-const size = ref<number>(0)
+const speed = ref<number>(5)
+const size = ref<number>(5)
+const emission = ref<number>(5)
 
 </script>
 
