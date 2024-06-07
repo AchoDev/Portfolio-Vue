@@ -4,7 +4,7 @@
     <div id="controls">
         <div>
             Speed:
-            <input v-model="speed" type="range" min="0" max="10">
+            <input v-model="speed" type="range" min="0" max="200">
             {{ speed }}
         </div>
         
@@ -25,6 +25,8 @@
         :speed="speed"
         :size="size"
         :emission="emission"
+        :start-radius="0"
+        :end-radius="360"
     />
 
 </div>
@@ -35,7 +37,7 @@
 import { ref } from 'vue';
 import ParticleSystem from '../../components/ParticleSystem.vue';
 
-const speed = ref<number>(5)
+const speed = ref<number>(100)
 const size = ref<number>(5)
 const emission = ref<number>(5)
 
