@@ -29,11 +29,13 @@ function getRandomDirection() {
 let lastUpdate = 0
 
 onMounted(() => {
-    setInterval(() => {
+    const runParticleSystem = () => {
         const particle: HTMLDivElement = document.createElement('div')
         particle.classList.add('particle')
         particle.style.left = '0px'
         particle.style.top = '0px'
+        particle.style.width = props.size + 'px'
+        particle.style.height = props.size + 'px'
         particleContainer.value.appendChild(particle)
 
         const direction = getRandomDirection()
@@ -49,11 +51,21 @@ onMounted(() => {
         }, 1000 / 50)
 
         setTimeout(() => {
+            console.log("die")
             clearInterval(interval)
             particleContainer.value.removeChild(particle)
         }, 1000)
 
-    }, 1000 / props.emission)
+        setTimeout(() => {
+            particle.style.opacity = '0'
+        }, 900)
+
+        setTimeout(runParticleSystem, 1000 / props.emission)
+    }
+
+    setTimeout(runParticleSystem, 1000 / props.emission)
+
+
     // }, 1000)
 })
 
@@ -69,8 +81,14 @@ onMounted(() => {
         width: 10px;
         height: 10px;
         left: 0px;
-        background: red;
+        background: rgb(255, 255, 255);
+        border-radius: 100%;
+        // filter: blur(3px);
         position: absolute;
+
+        opacity: 1;
+
+        transition: opacity linear .1s;
     }
 }
 

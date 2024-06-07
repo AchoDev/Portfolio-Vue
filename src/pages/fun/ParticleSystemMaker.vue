@@ -1,33 +1,38 @@
 <template>
 
 <div id="container">
+
+    <h2>Particle system creator</h2>
+
     <div id="controls">
         <div>
             Speed:
-            <input v-model="speed" type="range" min="0" max="200">
+            <input v-model="speed" type="range" min="0" max="500">
             {{ speed }}
         </div>
         
         <div>
             Size:
-            <input v-model="size" type="range" min="0" max="10">
+            <input v-model="size" type="range" min="0" max="30">
             {{ size }}
         </div>
 
         <div>
             Emission:
-            <input v-model="emission" type="range" min="0" max="10">
+            <input v-model="emission" type="range" min="0" max="20">
             {{ emission }}
         </div>
     </div>
 
-    <ParticleSystem 
-        :speed="speed"
-        :size="size"
-        :emission="emission"
-        :start-radius="0"
-        :end-radius="360"
-    />
+    <div id="particle-system-container">
+        <ParticleSystem 
+            :speed="parseInt(speed)"
+            :size="parseInt(size)"
+            :emission="parseInt(emission)"
+            :start-radius="0"
+            :end-radius="360"
+        />
+    </div>
 
 </div>
 
@@ -37,9 +42,9 @@
 import { ref } from 'vue';
 import ParticleSystem from '../../components/ParticleSystem.vue';
 
-const speed = ref<number>(100)
-const size = ref<number>(5)
-const emission = ref<number>(5)
+const speed = ref<string>("100")
+const size = ref<string>("5")
+const emission = ref<string>("5")
 
 </script>
 
@@ -66,6 +71,16 @@ const emission = ref<number>(5)
             display: flex;
             justify-content: space-between;
         }
+    }
+
+    #particle-system-container {
+        width: 100%;
+        margin: 20px;
+        height: 200px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(10deg, rgba(69, 51, 51, 0.513), rgba(147, 90, 90, 0.489));
     }
 }
 
