@@ -27,7 +27,7 @@ import ChangelogEntry from './ChangelogEntry.vue';
 
 #body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     overflow: auto;
     // padding: 30px;
 
@@ -36,6 +36,13 @@ import ChangelogEntry from './ChangelogEntry.vue';
     align-items: center;
 
     gap: 10px;
+
+    overflow-y: scroll;
+    margin: 100px 0;
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
 }
 
 </style>

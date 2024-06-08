@@ -59,6 +59,7 @@ function collapse() {
 
     &.expanded {
         max-height: 1000px;
+        padding-bottom: 10px;
         cursor: auto;
     }
 
