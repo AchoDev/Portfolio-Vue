@@ -1,5 +1,5 @@
 <template>
-    <div id="container">
+    <div id="page-container">
         <h1>Fun factory</h1>
 
         <p>This page is where the true fun begins. Lots of utilities and things to play around with <br><br> Nah just kidding, it's literally just debug tools I use</p>
@@ -16,10 +16,12 @@ import ParticleSystemMaker from './ParticleSystemMaker.vue';
 
 <style scoped lang="scss">
 
-#container {
-    margin-top: 50px;
+#page-container {
+    // margin-top: 50px;
     text-align: center;
     width: 100%;
+    height: 100dvh;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -5,14 +5,17 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
 const particleContainer = ref()
+
+const isActive = ref(false)
 
 const props = defineProps<{
     speed: number,
     size: number,
     emission: number,
+    lifetime: number
     startRadius: number,
     endRadius: number,
 }>()
@@ -26,47 +29,89 @@ function getRandomDirection() {
     return { x, y }
 }
 
-let lastUpdate = 0
-
-onMounted(() => {
-    const runParticleSystem = () => {
-        const particle: HTMLDivElement = document.createElement('div')
-        particle.classList.add('particle')
-        particle.style.left = '0px'
-        particle.style.top = '0px'
-        particle.style.width = props.size + 'px'
-        particle.style.height = props.size + 'px'
-        particleContainer.value.appendChild(particle)
-
-        const direction = getRandomDirection()
 
 
-        const interval = setInterval(() => {
-            const now = Date.now()
-            const dt = (now - lastUpdate) / 1000
-            lastUpdate = now
 
-            particle.style.left = ((props.speed * dt + Math.abs(particle.offsetLeft)) * direction.x) + 'px'
-            particle.style.top = ((props.speed * dt + Math.abs(particle.offsetTop)) * direction.y) + 'px'
-        }, 1000 / 50)
+function startParticleSystem() {
+    isActive.value = true
+    runParticleSystem()
+}
 
-        setTimeout(() => {
-            console.log("die")
-            clearInterval(interval)
-            particleContainer.value.removeChild(particle)
-        }, 1000)
+function sendSingular() {
+    runParticleSystem(true)
+}
 
-        setTimeout(() => {
-            particle.style.opacity = '0'
-        }, 900)
+function stopParticleSystem() {
+    isActive.value = false;
+}
 
-        setTimeout(runParticleSystem, 1000 / props.emission)
+function runParticleSystem(singular?: boolean) {
+
+    let continueAfterFinish = !(singular ?? false)
+    if(isActive.value && singular) {
+        continueAfterFinish = true
     }
 
-    setTimeout(runParticleSystem, 1000 / props.emission)
+    const particle: HTMLDivElement = document.createElement('div')
+    particle.classList.add('particle')
+    particle.style.left = '0px'
+    particle.style.top = '0px'
+    particle.style.width = props.size + 'px'
+    particle.style.height = props.size + 'px'
+    particleContainer.value.appendChild(particle)
+
+    const direction = getRandomDirection()
+
+    let start: number
+    let dead = false;
+
+    function moveParticle(timeStamp: number) {
+
+        if(dead) return
+
+        if(start == undefined) {
+            start = timeStamp
+        }
+
+        const elapsed = timeStamp - start
+
+        particle.style.left = ((props.speed * elapsed) * direction.x) + 'px'
+        particle.style.top = ((props.speed * elapsed) * direction.y) + 'px'
+        
+        requestAnimationFrame(moveParticle)
+    }
+
+    requestAnimationFrame(moveParticle)
+
+    setTimeout(() => {
+        console.log("die")
+        dead = true
+        particleContainer.value.removeChild(particle)
+    }, props.lifetime * 1000)
+
+    setTimeout(() => {
+        particle.classList.add('disappear')
+    }, props.lifetime * 1000 - 100)
+
+    if(!continueAfterFinish) {
+        isActive.value = false;
+        return
+    }
+
+    if(!singular) setTimeout(runParticleSystem, 1000 / props.emission)
+}
 
 
-    // }, 1000)
+defineExpose({
+    start: () => {
+        startParticleSystem()
+    },
+    stop: () => {
+        stopParticleSystem()
+    },
+    singleParticle: () => {
+        sendSingular()
+    }
 })
 
 </script>
@@ -88,7 +133,12 @@ onMounted(() => {
 
         opacity: 1;
 
-        transition: opacity linear .1s;
+        transition: opacity linear .1s, transform linear .2s;
+        
+        &.disappear {
+            opacity: 0;
+            transform: scale(0)
+        }
     }
 }
 
