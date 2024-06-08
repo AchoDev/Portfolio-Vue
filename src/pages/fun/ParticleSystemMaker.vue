@@ -84,9 +84,9 @@
 import { computed, ref } from 'vue';
 import ParticleSystem from '../../components/ParticleSystem.vue';
 
-const speed = ref<string>("0.5")
-const size = ref<string>("5")
-const emission = ref<string>("1")
+const speed = ref<string>("0.1")
+const size = ref<string>("10")
+const emission = ref<string>("10")
 const lifetime = ref<string>("1")
 
 const startRadius = ref<string>("0")
