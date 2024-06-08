@@ -18,6 +18,8 @@ const props = defineProps<{
     lifetime: number
     startRadius: number,
     endRadius: number,
+
+
 }>()
 
 function getRandomDirection() {
@@ -47,9 +49,8 @@ function stopParticleSystem() {
 
 function runParticleSystem(singular?: boolean) {
 
-    let continueAfterFinish = !(singular ?? false)
-    if(isActive.value && singular) {
-        continueAfterFinish = true
+    if(!isActive.value && !singular) {
+        return
     }
 
     const particle: HTMLDivElement = document.createElement('div')
@@ -92,11 +93,6 @@ function runParticleSystem(singular?: boolean) {
     setTimeout(() => {
         particle.classList.add('disappear')
     }, props.lifetime * 1000 - 100)
-
-    if(!continueAfterFinish) {
-        isActive.value = false;
-        return
-    }
 
     if(!singular) setTimeout(runParticleSystem, 1000 / props.emission)
 }
