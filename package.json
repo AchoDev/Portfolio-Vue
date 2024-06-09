@@ -12,8 +12,10 @@
     "postscribe": "^2.0.8",
     "three": "^0.158.0",
     "vue": "^3.3.8",
+    "vue-accessible-color-picker": "^5.0.1",
     "vue-head": "^2.2.0",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue3-colorpicker": "^2.3.0"
   },
   "devDependencies": {
     "@types/three": "^0.158.2",

@@ -18,8 +18,7 @@ const props = defineProps<{
     lifetime: number
     startRadius: number,
     endRadius: number,
-
-
+    color: string,
 }>()
 
 function getRandomDirection() {
@@ -59,6 +58,7 @@ function runParticleSystem(singular?: boolean) {
     particle.style.top = '0px'
     particle.style.width = props.size + 'px'
     particle.style.height = props.size + 'px'
+    particle.style.background = props.color
     particleContainer.value.appendChild(particle)
 
     const direction = getRandomDirection()

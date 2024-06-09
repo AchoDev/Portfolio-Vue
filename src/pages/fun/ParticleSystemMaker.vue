@@ -40,6 +40,11 @@
                         <input v-model="endRadius" type="range" min="1" max="360" step="1">
                         {{ endRadius }}
                     </div>
+
+                    <div>
+                        Color:
+                        <input type="text" v-model="color">
+                    </div>
                 </div>
             
                 <div id="particle-system-container">
@@ -63,6 +68,7 @@
                         :lifetime="parseFloat(lifetime)"
                         :start-radius="parseFloat(startRadius)"
                         :end-radius="parseFloat(endRadius)"
+                        :color="color ?? 'white'"
                     />
                 </div>
             </div>
@@ -103,7 +109,6 @@ import ParticleSystem from '../../components/ParticleSystem.vue';
 import FunContainer from './FunContainer.vue';
 import DialogBox from '../../components/DialogBox.vue';
 
-
 const speed = ref<string>("0.1")
 const size = ref<string>("10")
 const emission = ref<string>("10")
@@ -111,6 +116,8 @@ const lifetime = ref<string>("1")
 
 const startRadius = ref<string>("0")
 const endRadius = ref<string>("360")
+
+const color = ref<string>()
 
 const isActive = ref(false)
 
@@ -140,6 +147,8 @@ function copyCode() {
     showInfoText()
 }
 
+
+
 const infoTextVisible = ref(false)
 
 function showInfoText() {
@@ -163,7 +172,7 @@ const generatedCode = computed(() =>
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 
 #code-container {
     display: flex;

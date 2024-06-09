@@ -1,7 +1,7 @@
 <template>
 
 <router-link :to="'/' + link.path">
-    <span id="background-wrapper" :style="{
+    <span id="background-wrapper" @mouseenter="particleSystem.start()" @mouseleave="particleSystem.stop()" :style="{
         background: link.color
     }">
         <span id="container" :style="{
@@ -13,6 +13,21 @@
             <img id="link" src="/link.png" alt="Link">
         </span>
     </span>
+    
+    <div id="particle-container">
+        
+        <ParticleSystem
+            ref="particleSystem"
+            :speed="0.04"
+            :size="12"
+            :emission="4"
+            :lifetime="1"
+            :start-radius="0"
+            :end-radius="360"
+            :color="link.color"
+            />
+            <!-- color="white"     -->
+    </div>
 </router-link>
 
 </template>
@@ -20,11 +35,13 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
 import { projectList, ProjectType } from '../projects';
-
+import ParticleSystem from './ParticleSystem.vue';
 
 const props = defineProps<{
     to: string,
 }>()
+
+const particleSystem = ref()
 
 function defaultProject(): ProjectType {
     return {
@@ -73,6 +90,19 @@ onMounted(() => {
 
 <style scoped lang="scss">
 
+a {
+    position: relative;
+}
+
+#particle-container {
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    z-index: -1;
+
+    
+}
+
 #background-wrapper {
 
     user-select: none;
@@ -99,8 +129,7 @@ onMounted(() => {
         animation-iteration-count: infinite;
         animation-delay: .2s;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-
-        &::after {
+        &::after { 
             left: 0;
             opacity: 0;
 
@@ -120,6 +149,9 @@ onMounted(() => {
             transform: scale(1.1) rotate(-2deg)
         }
     }
+
+   
+
 
     #container {
         
