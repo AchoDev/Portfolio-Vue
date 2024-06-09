@@ -26,15 +26,17 @@ const props = defineProps<{
     to: string,
 }>()
 
-const defaultProject: ProjectType = {
-    name: `"${props.to}" not found`,
-    desc: '',
-    color: 'white',
-    path: '',
-    text: 'black'
+function defaultProject(): ProjectType {
+    return {
+        name: `"${props.to}" not found`,
+        desc: '',
+        color: 'white',
+        path: '',
+        text: 'black'
+    }
 }
 
-const link = ref<ProjectType>(defaultProject)
+const link = ref<ProjectType>(defaultProject())
 
 const smallImgLink = computed(() => {
 
@@ -55,7 +57,7 @@ function searchForProject() {
     
         return
     } else {
-        link.value = defaultProject
+        link.value = defaultProject()
     }
 }
 

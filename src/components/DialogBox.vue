@@ -1,7 +1,7 @@
 <template>
 
 <teleport to='body'>
-    <div id="dialog-wrapper" :class="{open}" @click="router.back()">
+    <div id="dialog-wrapper" :class="{open}" @click="close()">
         <div id="dialog-body" @click.stop>
             <slot />
         </div>
@@ -18,16 +18,32 @@ import { useRouter } from 'vue-router';
 // import { watch } from 'vue';
 
 const props = defineProps<{
-    opened: boolean,
+    opened?: boolean,
+    routerBased?: boolean,
 }>()
 
-const open = ref<boolean>(props.opened)
+const open = ref<boolean>(props.opened ?? false)
 
 watch(props, () => {
     open.value = props.opened
 })
 
 const router = useRouter()
+
+function close() {
+    if(props.routerBased) {
+        router.back()
+    } else {
+        open.value = false
+    }
+}
+
+defineExpose({
+    open() {
+        open.value = true
+    },
+})
+
 
 // const open = defineModel()
 
@@ -49,7 +65,7 @@ const router = useRouter()
 #dialog-wrapper {
     
     transition: linear .2s;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     opacity: 0;
@@ -67,12 +83,15 @@ const router = useRouter()
     #dialog-body {
 
         width: 70%;
-        height: 80%;
+        max-height: 80%;
+        min-height: 50%;
 
         overflow-y: scroll;
         overflow-x: hidden;
 
         border-radius: 10px;
+
+        padding: 10px;
 
         background: linear-gradient(
             60deg,

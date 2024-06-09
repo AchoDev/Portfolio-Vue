@@ -94,11 +94,11 @@
 
   </div>
 
-  <dialog-box :opened="page == 'changelog'">
+  <dialog-box :opened="page == 'changelog'" :router-based="true">
     <ChangeLog />
   </dialog-box>
 
-  <dialog-box :opened="page == 'contact'">
+  <dialog-box :opened="page == 'contact'" :router-based="true">
     <Contact />
   </dialog-box>
 

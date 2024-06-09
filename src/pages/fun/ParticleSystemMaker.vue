@@ -71,8 +71,28 @@
                 <button v-if="!isActive" @click="startParticleSystem()">Start</button>
                 <button v-else @click="stopParticleSystem()">Stop</button>
                 <button @click="sendSingleParticle()">Single particle</button>
+                <button @click="dialog.open()">Generate code</button>
             </div>
         </div>
+        
+        <DialogBox ref="dialog">
+            <div id="code-container">
+                <h2>Generated code</h2>
+                
+                <code>
+                    <pre>
+                        {{ generatedCode }}
+                    </pre>
+                </code>
+
+                <p
+                    :style="{opacity: infoTextVisible ? 1 : 0}"
+                >Copied to clipboard!</p>
+
+                <button @click="copyCode()">Copy to clipboard</button>
+            </div>
+        </DialogBox>
+
     </FunContainer>
 
 </template>
@@ -81,6 +101,8 @@
 import { computed, ref } from 'vue';
 import ParticleSystem from '../../components/ParticleSystem.vue';
 import FunContainer from './FunContainer.vue';
+import DialogBox from '../../components/DialogBox.vue';
+
 
 const speed = ref<string>("0.1")
 const size = ref<string>("10")
@@ -93,6 +115,7 @@ const endRadius = ref<string>("360")
 const isActive = ref(false)
 
 const particleSystem = ref()
+const dialog = ref()
 
 const indicatorOffset = computed(() => (
     250 - (250 * ((parseFloat(endRadius.value) - parseFloat(startRadius.value)) / 360)))
@@ -112,9 +135,75 @@ function sendSingleParticle() {
     particleSystem.value.singleParticle()
 }
 
+function copyCode() {
+    navigator.clipboard.writeText(generatedCode.value)
+    showInfoText()
+}
+
+const infoTextVisible = ref(false)
+
+function showInfoText() {
+    infoTextVisible.value = true;
+    
+    setTimeout(() => {
+        infoTextVisible.value = false
+    }, 1000);
+}
+
+const generatedCode = computed(() => 
+`
+<ParticleSystem
+    :speed="${speed.value}"
+    :size="${size.value}"
+    :emission="${emission.value}"
+    :lifetime="${lifetime.value}"
+    :start-radius="${startRadius.value}"
+    :end-radius="${endRadius.value}"
+/>`)
+
 </script>
 
 <style scoped lang="scss">
+
+#code-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+    code {
+        display: flex;
+        justify-content: center;
+        
+        pre {
+            background: rgb(46, 51, 57);
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            border-radius: 10px; 
+        }
+    }
+
+    p {
+        transition: linear .3s;
+    }
+
+    button {
+        height: 30px;
+        width: 150px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        transition: ease-out .2s;
+        &:hover {
+            transform: scale(1.1);
+        }
+        &:active {
+            transform: scale(1);
+        }
+    }
+}
 
 #container {
     &>div {

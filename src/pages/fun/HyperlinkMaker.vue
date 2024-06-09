@@ -6,6 +6,8 @@
 
     <input v-model="hyperlinkSearch" type="text">
 
+    <br>
+
     <Hyperlink :to="hyperlinkSearch ?? ''" />
 
 </FunContainer>
@@ -22,4 +24,16 @@ const hyperlinkSearch = ref<string>()
 </script>
 
 <style scoped lang="scss">
+
+input {
+    width: 150px;
+    height: 25px;
+    border: black;
+    border-radius: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
 </style>
