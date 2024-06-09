@@ -30,6 +30,8 @@ import ParticleSystemMaker from './ParticleSystemMaker.vue';
     align-items: center;
     flex-direction: column;
 
+    padding-top: 100px;
+
     gap: 50px;
 
     // overflow-y: scroll;
