@@ -85,7 +85,6 @@ function runParticleSystem(singular?: boolean) {
     requestAnimationFrame(moveParticle)
 
     setTimeout(() => {
-        console.log("die")
         dead = true
         particleContainer.value.removeChild(particle)
     }, props.lifetime * 1000)

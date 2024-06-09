@@ -18,44 +18,53 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { projectList, ProjectType } from '../projects';
-// import { useRouter } from 'vue-router';
-// import Project from '../pages/about/projectType';
 
-// interface Hyperlink {
-//     smallImg: string,
-//     title: string,
-//     color: string,
-//     path: string,
-// }
-
-// const router = useRouter()
 
 const props = defineProps<{
     to: string,
 }>()
 
-const link = ref<ProjectType>({
-    // smallImg: '../question.jpeg',
+const defaultProject: ProjectType = {
     name: `"${props.to}" not found`,
     desc: '',
     color: 'white',
-    path: '/',
+    path: '',
     text: 'black'
+}
+
+const link = ref<ProjectType>(defaultProject)
+
+const smallImgLink = computed(() => {
+
+    if(link.value.path == '') {
+        return '../question.jpeg'
+    } else {
+        return `../projects/${link.value.path}/small.png`
+    }
+
 })
 
-const smallImgLink = computed(() => `../projects/${link.value.path}/small.png`)
-
-onMounted(() => {
+function searchForProject() {
     const writtenProjectRes = projectList.find((a) => a.path == props.to)
-
+    
     if (writtenProjectRes != null)
     {
         link.value = writtenProjectRes
     
         return
+    } else {
+        link.value = defaultProject
     }
+}
+
+watch(props, () => {
+    searchForProject()
+})
+
+onMounted(() => {
+    searchForProject()
 })
 
 </script>
