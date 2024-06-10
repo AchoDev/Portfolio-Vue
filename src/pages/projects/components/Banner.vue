@@ -106,6 +106,7 @@ defineProps<{
     width: 100%;
     height: 170px;
 
+    justify-content: start;
     align-items: end;
 
     padding: 25px;
