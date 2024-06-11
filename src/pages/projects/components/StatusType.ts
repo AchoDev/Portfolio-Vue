@@ -1,5 +1,5 @@
 enum StatusType {
-    Planning,
+    Planning, 
     Development,
     OnHold,
     Finished,

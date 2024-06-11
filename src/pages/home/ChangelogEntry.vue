@@ -9,11 +9,7 @@
         <p id="bottom">{{ description }}</p>
 
         <div id="images">
-            <ImageCarousel>
-                <img src="./changelog/particlesystem/image.png">
-                <img src="./changelog/particlesystem/image2.png">
-                <img src="./changelog/particlesystem/image3.png">
-            </ImageCarousel>
+            <ImageCarousel :images="images?.map(image => getLink('./changelog/' + image))" />
         </div>
 
         <div id="collapse" @click="collapse()" @click.stop>^ Collapse</div>
@@ -28,8 +24,10 @@ defineProps<{
     title: string,
     date: string,
     description: string,
-    // images: string[]
+    images: string[]
 }>()
+
+const getLink = (link: string): string => new URL(link, import.meta.url).href
 
 const expanded = ref<boolean>(false)
 

@@ -2,7 +2,7 @@
 
 <teleport to='body'>
     <div id="dialog-wrapper" :class="{open}" @click="close()">
-        <div id="dialog-body" @click.stop>
+        <div id="dialog-body" @click.stop :style="{padding: padding + 'px' ?? '10px', overflowY: scrollType}">
             <slot />
         </div>
     </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 // import { watch } from 'vue';
@@ -20,7 +20,17 @@ import { useRouter } from 'vue-router';
 const props = defineProps<{
     opened?: boolean,
     routerBased?: boolean,
+    padding?: number,
+    scroll?: boolean,
 }>()
+
+const scrollType = computed(() => {
+    if(props.scroll === false) {
+        return 'hidden'
+    } else {
+        return 'scroll'
+    }
+})
 
 const open = ref<boolean>(props.opened ?? false)
 
@@ -43,6 +53,10 @@ defineExpose({
         open.value = true
     },
 })
+
+// onMounted(() => {
+//     if(props.scroll == undefined) props.sc+
+// })
 
 
 // const open = defineModel()
@@ -83,15 +97,14 @@ defineExpose({
     #dialog-body {
 
         width: 70%;
+        height: 600px;
         max-height: 80%;
         min-height: 50%;
 
-        overflow-y: scroll;
+        // overflow-y: scroll;
         overflow-x: hidden;
 
         border-radius: 10px;
-
-        padding: 10px;
 
         background: linear-gradient(
             60deg,
@@ -102,7 +115,7 @@ defineExpose({
       
 
         transform: scale(1.2);
-        transition: cubic-bezier(0.165, 0.84, 0.44, 1) .2s;
+        transition: transform cubic-bezier(0.165, 0.84, 0.44, 1) .2s, opacity cubic-bezier(0.165, 0.84, 0.44, 1) .2s;
 
         &::-webkit-scrollbar-track {
             background: transparent;

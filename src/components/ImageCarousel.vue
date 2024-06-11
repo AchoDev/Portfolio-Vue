@@ -1,10 +1,12 @@
 <template>
     <div>
         <div id="image-carousel">
-            <slot />
+            <img v-for="image in images" :src="image" @click="expandImage(image)">
         </div>
-        <DialogBox>
-            <img :src="currentOpenImage" alt="Carousel image">
+        <DialogBox ref="imageDialog" :padding="0" :scroll="false">
+            <div id="image-dialog">
+                <img :src="currentOpenImage" alt="Carousel image">
+            </div>
         </DialogBox>
     </div>
 </template>
@@ -14,6 +16,16 @@ import { ref } from 'vue';
 import DialogBox from './DialogBox.vue';
 
 const currentOpenImage = ref<string>("")
+const imageDialog = ref()
+
+function expandImage(link: string) {
+    currentOpenImage.value = link
+    imageDialog.value.open()
+}
+
+defineProps<{
+    images: string[]
+}>()
 
 </script>
 
@@ -35,6 +47,20 @@ const currentOpenImage = ref<string>("")
         &:hover {
             transform: scale(1.05);
         }
+    }
+}
+
+#image-dialog {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    img {
+        height: 100%;
+        width: auto;
     }
 }
 
