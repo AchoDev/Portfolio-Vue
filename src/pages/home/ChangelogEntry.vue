@@ -8,18 +8,27 @@
 
         <p id="bottom">{{ description }}</p>
 
+        <div id="images">
+            <ImageCarousel>
+                <img src="./changelog/particlesystem/image.png">
+                <img src="./changelog/particlesystem/image2.png">
+                <img src="./changelog/particlesystem/image3.png">
+            </ImageCarousel>
+        </div>
+
         <div id="collapse" @click="collapse()" @click.stop>^ Collapse</div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
+import ImageCarousel from '../../components/ImageCarousel.vue';
 
 defineProps<{
     title: string,
     date: string,
     description: string,
+    // images: string[]
 }>()
 
 const expanded = ref<boolean>(false)

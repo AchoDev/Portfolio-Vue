@@ -11,6 +11,7 @@
         :title="entry.title"
         :date="entry.date"
         :description="entry.description"
+        :images="entry.images"
     />
 </div>  
 

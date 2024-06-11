@@ -3,6 +3,7 @@ interface ChangelogEntry {
     title: string,
     date: string,
     description: string,
+    images: string[]
     relatedPage: string | null,
 }
 
