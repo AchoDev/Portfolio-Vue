@@ -34,6 +34,28 @@
         {{publishedOn}}
       </span>
     </div>
+
+    <div id="status">
+      <div v-if="status == StatusType.Planning" class="status-banner">
+        Planned
+      </div>
+
+      <div v-else-if="status == StatusType.Development" class="status-banner">
+
+      </div>
+      
+      <div v-else-if="status == StatusType.OnHold" class="status-banner">
+
+      </div>
+      
+      <div v-else-if="status == StatusType.Finished" class="status-banner">
+
+      </div>
+      
+      <div v-else class="status-banner">
+
+      </div>
+    </div>
   </div>
 </div>
 
@@ -42,6 +64,7 @@
 <script setup lang="ts">
 
 import { defineProps } from 'vue';
+import StatusType from './StatusType';
 
 defineProps<{
   title: string
@@ -50,6 +73,7 @@ defineProps<{
   github: string
   createdOn: string
   publishedOn: string
+  status: StatusType
 }>()
 
 </script>

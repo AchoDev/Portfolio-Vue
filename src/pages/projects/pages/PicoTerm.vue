@@ -3,6 +3,7 @@ import Banner from "../components/Banner.vue";
 import PreviewImages from "../components/PreviewImages.vue";
 import ProjectContent from "../components/ProjectContent.vue";
 import Footer from "../components/Footer.vue";
+import StautsType from "../components/StatusType"
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import Footer from "../components/Footer.vue";
       download="https://1drv.ms/u/s!AovQFIBO4x5ZirhqoLF0FQvfoQ0MtA?e=IWmcdA"
       createdOn="10 February, 2024"
       publishedOn="15 February, 2024"
+      :status="StautsType.Finished"
     />
 
     <PreviewImages base="pico-term" trailer="" :images="['preview.png']" />
