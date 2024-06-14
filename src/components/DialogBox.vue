@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 // import { watch } from 'vue';
@@ -21,11 +21,11 @@ const props = defineProps<{
     opened?: boolean,
     routerBased?: boolean,
     padding?: number,
-    scroll?: boolean,
+    noScroll?: boolean,
 }>()
 
 const scrollType = computed(() => {
-    if(props.scroll === false) {
+    if(props.noScroll === true) {
         return 'hidden'
     } else {
         return 'scroll'
@@ -53,10 +53,6 @@ defineExpose({
         open.value = true
     },
 })
-
-// onMounted(() => {
-//     if(props.scroll == undefined) props.sc+
-// })
 
 
 // const open = defineModel()
