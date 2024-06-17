@@ -22,7 +22,7 @@
     </a>
     <!-- <button id="web"></button> -->
 
-    <div id="created-on" v-if="createdOn != ''">
+    <!-- <div id="created-on" v-if="createdOn != ''">
       Created on
       <span class="date">
         {{createdOn}}
@@ -33,26 +33,21 @@
       <span class="date">
         {{publishedOn}}
       </span>
-    </div>
+    </div> -->
 
     <div id="status">
-      <div v-if="status == StatusType.Planning" class="status-banner">
-        Planned
-      </div>
+      <div class="status-banner" :class="statusName">
+        <span>Status</span>
+        
+        <img v-if="status == StatusType.Planning" src="../statusimages/planning.png" :alt="statusName">        
 
-      <div v-else-if="status == StatusType.Development" class="status-banner">
+        <h3>
+          {{ statusName.toUpperCase() }}
+        </h3>
 
-      </div>
-      
-      <div v-else-if="status == StatusType.OnHold" class="status-banner">
-
-      </div>
-      
-      <div v-else-if="status == StatusType.Finished" class="status-banner">
-
-      </div>
-      
-      <div v-else class="status-banner">
+        <p v-if="status == StatusType.Planning">
+          This project is currently in PLANNING, which means there has been no development yet.
+        </p>
 
       </div>
     </div>
@@ -63,10 +58,10 @@
 
 <script setup lang="ts">
 
-import { defineProps } from 'vue';
+import { computed, defineProps } from 'vue';
 import StatusType from './StatusType';
 
-defineProps<{
+const props = defineProps<{
   title: string
   banner: string
   download: string
@@ -76,9 +71,85 @@ defineProps<{
   status: StatusType
 }>()
 
+const statusName = computed(() => {
+  switch(props.status) {
+    case StatusType.Planning:
+      return 'planning'
+      break
+
+    default:
+      return ''
+  }
+})
+
 </script>
 
 <style scoped lang="scss">
+
+  .status-banner {
+    width: 275px;
+    height: 35px;
+    position: relative;
+    
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    // align-items: center;
+    font-size: 15pt;
+
+    padding: 10px;
+    border-radius: 5px;
+
+    span, h3 {
+      z-index: 1;
+      margin: 0;
+
+      // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+
+    span {
+      font-size: 10pt;
+    }
+
+    img {
+      height: 130%;
+
+      max-height: 150px;
+      position: absolute;
+      right: -4px;
+      bottom: -8px;
+
+      transition: ease-in-out .3s;
+      
+      $rotate-amount: 5deg;
+      @keyframes idle {
+        0% {
+          transform: rotate(-$rotate-amount);
+        }
+        50% {
+          transform: rotate($rotate-amount);
+        }
+        100% {
+          transform: rotate(-$rotate-amount);
+        }
+      }
+
+      animation-name: idle;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+    }
+
+    &.planning {
+      background: linear-gradient(105deg, gray, rgb(105, 105, 105));
+    }
+
+    transition: cubi 1s;
+    &:hover {
+      height: 300px;
+    }
+  }
 
   #container {
     width: 100%;
@@ -131,6 +202,7 @@ defineProps<{
     height: 170px;
 
     justify-content: start;
+
     align-items: end;
 
     padding: 25px;

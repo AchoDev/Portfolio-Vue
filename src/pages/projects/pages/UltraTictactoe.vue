@@ -4,6 +4,7 @@ import Banner from '../components/Banner.vue';
 import PreviewImages from '../components/PreviewImages.vue'
 import ProjectContent from '../components/ProjectContent.vue'
 import Footer from '../components/Footer.vue'
+import StatusType from '../components/StatusType';
 
 </script>
 
@@ -18,6 +19,7 @@ import Footer from '../components/Footer.vue'
     github="https://github.com/AchoDev/Ultra-TicTacToe/"
     createdOn="31 August, 2023"
     publishedOn="10 September, 2023"
+    :status="StatusType.Planning"
   />
 
   <PreviewImages
