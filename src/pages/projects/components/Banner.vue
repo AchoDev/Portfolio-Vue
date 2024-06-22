@@ -113,15 +113,20 @@ const statusName = computed(() => {
       font-size: 10pt;
     }
 
+    p {
+      text-align: justify;
+      font-size: 12pt;
+    }
+
     img {
-      height: 130%;
+      height: 70px;
 
       max-height: 150px;
       position: absolute;
       right: -4px;
       bottom: -8px;
 
-      transition: ease-in-out .3s;
+      transition: cubic-bezier(0.645, 0.045, 0.355, 1) .75s;
       
       $rotate-amount: 5deg;
       @keyframes idle {
@@ -141,13 +146,30 @@ const statusName = computed(() => {
       animation-iteration-count: infinite;
     }
 
+    $border-angle: 0turn;
     &.planning {
       background: linear-gradient(105deg, gray, rgb(105, 105, 105));
+      border-color: conic-gradient(from $border-angle, transparent 25%, white 99%, transparent);
     }
 
-    transition: cubi 1s;
+
+
+    animation-name: border-animation;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+    @keyframes border-animation {
+      to {
+        $border-angle: 1turn;
+      }
+    }
+
+    transition: ease-in-out .5s;
     &:hover {
-      height: 300px;
+      height: 250px;
+
+      img {
+        height: 140px;
+      }
     }
   }
 
