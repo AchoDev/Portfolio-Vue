@@ -89,7 +89,10 @@ function runParticleSystem(singular?: boolean) {
 
         if(props.directionalRotation) {
             const degree = Math.atan2(speed.y, speed.x) * (180 / Math.PI)
-            particle.style.transform = `rotate(${degree}deg)`
+
+            console.log(degree)
+
+            particle.style.rotate = `${degree}deg`
         }
         
         speed.y += elapsed * (props.gravityScale * 0.0000025)
@@ -167,7 +170,7 @@ defineExpose({
 
         opacity: 1;
 
-        transition: opacity linear .1s, transform linear .2s;
+        transition: opacity linear .1s, transform linear .2s, rotate linear .01s;
         
         &.disappear {
             opacity: 0;
