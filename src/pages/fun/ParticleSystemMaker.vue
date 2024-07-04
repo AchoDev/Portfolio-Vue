@@ -47,12 +47,31 @@
                         {{ rotation }}
                     </div>
 
+                    <div>
+                        Rotate toward direction:
+                        <input v-model="directionalRotation" type="checkbox">
+                    </div>
+
                     <br>
 
                     <div>
                         Gravity Scale:
                         <input v-model="gravityScale" type="range" min="0" max="1" step="0.1">
                         {{ gravityScale }}
+                    </div>
+
+                    <div>
+                        Shape:
+                        <select v-model="shape">
+                            <option value="circle">Circle</option>
+                            <option value="square">Square</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        Blur:
+                        <input v-model="blur" type="range" min="0" max="5" step="0.1">
+                        {{ blur }}
                     </div>
 
                     <div>
@@ -85,7 +104,10 @@
                         :start-radius="parseFloat(startRadius)"
                         :end-radius="parseFloat(endRadius)"
                         :rotation="parseFloat(rotation)"
+                        :directional-rotation="directionalRotation as unknown as boolean"
                         :gravity-scale="parseFloat(gravityScale)"
+                        :shape="shape ?? 'circle'"
+                        :blur="parseFloat(blur)"
                         :color="color ?? 'white'"
                     />
                 </div>
@@ -135,10 +157,13 @@ const lifetime = ref<string>("1")
 const startRadius = ref<string>("0")
 const endRadius = ref<string>("360")
 const rotation = ref<string>("0")
+const directionalRotation = ref<string>("false")
 
 const gravityScale = ref<string>("0")
 
-const color = ref<string>()
+const color = ref<string>("white")
+const shape = ref<string>("circle")
+const blur = ref<string>("3")
 
 const isActive = ref(false)
 

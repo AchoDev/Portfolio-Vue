@@ -19,7 +19,10 @@ const props = defineProps<{
     startRadius: number,
     endRadius: number,
     rotation: number,
+    directionalRotation: boolean,
     gravityScale: number,
+    shape: string,
+    blur: number,
     color: string,
 }>()
 
@@ -56,6 +59,8 @@ function runParticleSystem(singular?: boolean) {
 
     const particle: HTMLDivElement = document.createElement('div')
     particle.classList.add('particle')
+    particle.classList.add(props.shape)
+    particle.style.filter = `blur(${props.blur}px)`
     particle.style.left = '0px'
     particle.style.top = '0px'
     particle.style.width = props.size + 'px'
@@ -81,6 +86,11 @@ function runParticleSystem(singular?: boolean) {
         }
 
         const elapsed = timeStamp - start
+
+        if(props.directionalRotation) {
+            const degree = Math.atan2(speed.y, speed.x) * (180 / Math.PI)
+            particle.style.transform = `rotate(${degree}deg)`
+        }
         
         speed.y += elapsed * (props.gravityScale * 0.0000025)
 
@@ -130,7 +140,6 @@ defineExpose({
         height: 10px;
         left: 0px;
         background: rgb(255, 255, 255);
-        border-radius: 100%;
         filter: blur(3px);
         position: absolute;
 
@@ -141,6 +150,14 @@ defineExpose({
         &.disappear {
             opacity: 0;
             transform: scale(0)
+        }
+
+        &.circle {
+            border-radius: 100%;
+        }
+
+        &.square {
+            border-radius: 0;
         }
     }
 }
