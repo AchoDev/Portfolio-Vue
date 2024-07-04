@@ -18,13 +18,14 @@ const props = defineProps<{
     lifetime: number
     startRadius: number,
     endRadius: number,
+    rotation: number,
     gravityScale: number,
     color: string,
 }>()
 
 function getRandomDirection() {
     const degree = Math.random() * (props.endRadius - props.startRadius) + props.startRadius
-    const radian = degree * Math.PI / 180
+    const radian = (degree + props.rotation) * Math.PI / 180
     const x = Math.cos(radian)
     const y = Math.sin(radian)
 

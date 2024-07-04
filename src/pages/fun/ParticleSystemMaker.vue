@@ -41,6 +41,12 @@
                         {{ endRadius }}
                     </div>
 
+                    <div>
+                        Rotation
+                        <input v-model="rotation" type="range" min="-180" max="180" step="1">
+                        {{ rotation }}
+                    </div>
+
                     <br>
 
                     <div>
@@ -58,7 +64,9 @@
                 <div id="particle-system-container">
         
                     <div id="arc-indicator">
-                        <svg height="100" width="100">
+                        <svg height="100" width="100" :style="{
+                            transform: `rotate(${rotation}deg)`
+                        }">
                             <circle cx="50" cy="50" r="40" :style="{
                                 strokeDashoffset: indicatorOffset,
                                 transform: `rotate(${startRadius}deg)`
@@ -76,6 +84,7 @@
                         :lifetime="parseFloat(lifetime)"
                         :start-radius="parseFloat(startRadius)"
                         :end-radius="parseFloat(endRadius)"
+                        :rotation="parseFloat(rotation)"
                         :gravity-scale="parseFloat(gravityScale)"
                         :color="color ?? 'white'"
                     />
@@ -125,6 +134,7 @@ const lifetime = ref<string>("1")
 
 const startRadius = ref<string>("0")
 const endRadius = ref<string>("360")
+const rotation = ref<string>("0")
 
 const gravityScale = ref<string>("0")
 
