@@ -9,6 +9,12 @@ interface ChangelogEntry {
 
 const changelogEntries = <ChangelogEntry[]>[
     {
+        title: "Upgraded particle system",
+        date: "4 Juli, 2024",
+        description: "After a short while of inactivity, I bring an updated particle system! Way more options, like gravity slider, different shapes, blur settings and so on. ",
+        images: ['particlesystemupdate.png'],
+    },
+    {
         title: "Fun factory and particle system",
         date: "8 June, 2024",
         description: "Look at this, a brand new page! The 'Fun Factory' is an exciting new innovation, brought to you by AchoDev Incorporated TM. We aim to revolutionize the lanscape and bring exciting new ideas and innovations. In this impressive new update, we bring two new innovations: The 'Fun Factory', an exciting new innovation and the 'Particle System', able to revolutionize and innovate the technical landscape. With the former, we will be able to bring organized fun and entertainment to all customers. The latter will enhance our users experience and create unforgettable memories. Thank you for listening to this exiciting innovative presentation and buy our product",
