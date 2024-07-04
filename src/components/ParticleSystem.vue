@@ -89,9 +89,6 @@ function runParticleSystem(singular?: boolean) {
 
         if(props.directionalRotation) {
             const degree = Math.atan2(speed.y, speed.x) * (180 / Math.PI)
-
-            console.log(degree)
-
             particle.style.rotate = `${degree}deg`
         }
         
