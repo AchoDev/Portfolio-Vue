@@ -20,7 +20,7 @@ defineProps<{
     background: rgba(255, 255, 255, 0.237);
     backdrop-filter: blur(100px);
     max-width: 700px;
-    height: 380px;
+    min-height: 280px;
     padding: 10px;
     border-radius: 5px;
 

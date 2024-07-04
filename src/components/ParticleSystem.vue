@@ -97,21 +97,43 @@ function runParticleSystem(singular?: boolean) {
         particle.style.left = speed.x * elapsed + 'px'
         particle.style.top = speed.y * elapsed + 'px'
         
+        if(elapsed > props.lifetime * 1000) {
+            dead = true
+            particleContainer.value.removeChild(particle)
+            return
+        }
+
+        if(elapsed > props.lifetime * 1000 - 100) {
+            particle.classList.add('disappear')
+        }
+
         requestAnimationFrame(moveParticle)
     }
 
     requestAnimationFrame(moveParticle)
 
-    setTimeout(() => {
-        dead = true
-        particleContainer.value.removeChild(particle)
-    }, props.lifetime * 1000)
+    if(!singular) {
+        let loopStart: number
 
-    setTimeout(() => {
-        particle.classList.add('disappear')
-    }, props.lifetime * 1000 - 100)
+        function loop(timeStamp: number) {
 
-    if(!singular) setTimeout(runParticleSystem, 1000 / props.emission)
+            if(loopStart == undefined) {
+                loopStart = timeStamp
+            }
+
+            const elapsed = timeStamp - loopStart
+
+            if(elapsed > 1000 / props.emission) {
+                loopStart = timeStamp
+                runParticleSystem()
+                return
+            }
+
+            requestAnimationFrame(loop)
+        }
+
+        requestAnimationFrame(loop)
+    }
 }
 
 
@@ -158,6 +180,24 @@ defineExpose({
 
         &.square {
             border-radius: 0;
+        }
+
+        &.star {
+            // position: relative;
+            visibility: hidden;
+        }
+
+        &.star::before {
+            content: '';
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            background: inherit;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            transform: rotate(36deg);
+            visibility: visible;
+            left: 0;
+            rotate: 180deg;
         }
     }
 }

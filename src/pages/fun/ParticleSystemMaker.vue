@@ -65,6 +65,7 @@
                         <select v-model="shape">
                             <option value="circle">Circle</option>
                             <option value="square">Square</option>
+                            <option value="star">Star</option>
                         </select>
                     </div>
 
@@ -112,6 +113,8 @@
                     />
                 </div>
             </div>
+
+            <br>
         
             <div>
                 <button v-if="!isActive" @click="startParticleSystem()">Start</button>
