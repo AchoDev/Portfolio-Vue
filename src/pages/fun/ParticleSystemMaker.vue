@@ -105,7 +105,7 @@
                         :start-radius="parseFloat(startRadius)"
                         :end-radius="parseFloat(endRadius)"
                         :rotation="parseFloat(rotation)"
-                        :directional-rotation="directionalRotation as unknown as boolean"
+                        :directional-rotation="directionalRotation as boolean"
                         :gravity-scale="parseFloat(gravityScale)"
                         :shape="shape ?? 'circle'"
                         :blur="parseFloat(blur)"
@@ -160,7 +160,7 @@ const lifetime = ref<string>("1")
 const startRadius = ref<string>("0")
 const endRadius = ref<string>("360")
 const rotation = ref<string>("0")
-const directionalRotation = ref<string>("false")
+const directionalRotation = ref<any>(false)
 
 const gravityScale = ref<string>("0")
 
@@ -217,6 +217,12 @@ const generatedCode = computed(() =>
     :lifetime="${lifetime.value}"
     :start-radius="${startRadius.value}"
     :end-radius="${endRadius.value}"
+    :rotation="${rotation.value}"
+    :directional-rotation="${directionalRotation.value}"
+    :gravity-scale="${gravityScale.value}"
+    :shape="${shape.value}"
+    :blur="${blur.value}"
+    :color="${color.value}"
 />`)
 
 </script>
