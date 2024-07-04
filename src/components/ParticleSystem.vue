@@ -18,6 +18,7 @@ const props = defineProps<{
     lifetime: number
     startRadius: number,
     endRadius: number,
+    gravityScale: number,
     color: string,
 }>()
 
@@ -65,6 +66,10 @@ function runParticleSystem(singular?: boolean) {
 
     let start: number
     let dead = false;
+    let speed = {
+        x: props.speed * direction.x,
+        y: props.speed * direction.y,
+    }
 
     function moveParticle(timeStamp: number) {
 
@@ -75,9 +80,11 @@ function runParticleSystem(singular?: boolean) {
         }
 
         const elapsed = timeStamp - start
+        
+        speed.y += elapsed * (props.gravityScale * 0.0000025)
 
-        particle.style.left = ((props.speed * elapsed) * direction.x) + 'px'
-        particle.style.top = ((props.speed * elapsed) * direction.y) + 'px'
+        particle.style.left = speed.x * elapsed + 'px'
+        particle.style.top = speed.y * elapsed + 'px'
         
         requestAnimationFrame(moveParticle)
     }

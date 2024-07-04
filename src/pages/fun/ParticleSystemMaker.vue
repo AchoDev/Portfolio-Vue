@@ -41,6 +41,14 @@
                         {{ endRadius }}
                     </div>
 
+                    <br>
+
+                    <div>
+                        Gravity Scale:
+                        <input v-model="gravityScale" type="range" min="0" max="1" step="0.1">
+                        {{ gravityScale }}
+                    </div>
+
                     <div>
                         Color:
                         <input type="text" v-model="color">
@@ -68,6 +76,7 @@
                         :lifetime="parseFloat(lifetime)"
                         :start-radius="parseFloat(startRadius)"
                         :end-radius="parseFloat(endRadius)"
+                        :gravity-scale="parseFloat(gravityScale)"
                         :color="color ?? 'white'"
                     />
                 </div>
@@ -116,6 +125,8 @@ const lifetime = ref<string>("1")
 
 const startRadius = ref<string>("0")
 const endRadius = ref<string>("360")
+
+const gravityScale = ref<string>("0")
 
 const color = ref<string>()
 
