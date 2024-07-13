@@ -135,6 +135,25 @@
     />
 
     <Skill
+      name="Tailwind"
+      img="tailwind.png"
+      color="#07b6d5"
+      :projects="[
+        portfolio
+      ]"
+    />
+
+    <Skill
+      name="Pinia"
+      img="pinia.svg"
+      color="#ffd755"
+      :projects="[
+        portfolio
+      ]"
+      textColor="black"
+    />
+
+    <Skill
       name="Python"
       img="python.png"
       color="#3474a4"
@@ -167,6 +186,14 @@
       color="#099cec"
       :projects="[
         bw
+      ]"
+    />
+
+    <Skill
+      name="Java"
+      img="java.png"
+      color="#0d8ac7"
+      :projects="[
       ]"
     />
 
