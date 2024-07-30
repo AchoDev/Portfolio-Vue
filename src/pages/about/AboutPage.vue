@@ -107,6 +107,15 @@
     />
 
     <Skill
+      name="AWS"
+      img="aws.png"
+      color="#ff9900"
+      :projects="[
+        
+      ]"
+    />
+
+    <Skill
       name="ThreeJS"
       img="threejs.png"
       color="white"
